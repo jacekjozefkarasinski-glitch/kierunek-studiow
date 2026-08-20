@@ -45,7 +45,7 @@ export default function Home() {
 
       {/* Wprowadzenie */}
       <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8 lg:py-12">
           <div className="max-w-3xl">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
               Wydział Zarządzania Uniwersytetu Warszawskiego
@@ -62,7 +62,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
               <p className="text-sm font-medium text-slate-500">
                 Forma studiów
@@ -104,7 +104,7 @@ export default function Home() {
 
       {/* Facebook CTA */}
       <section className="bg-[#08265c] text-white">
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-14 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-9 lg:flex-row lg:items-center lg:justify-between lg:px-8">
           <div className="max-w-3xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
               Facebook
@@ -114,7 +114,7 @@ export default function Home() {
               Bądź na bieżąco z życiem kierunku
             </h2>
 
-            <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-200">
+            <p className="mt-3 max-w-2xl text-base leading-7 text-slate-200">
               Aktualności, wydarzenia, informacje o rekrutacji i materiały
               związane z kierunkiem publikujemy również na naszej stronie
               Facebook.
@@ -134,8 +134,8 @@ export default function Home() {
 
       {/* Aktualności */}
       <section id="aktualnosci" className="bg-[#f4f8fc]">
-        <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8 lg:py-24">
-          <div className="mb-12 flex items-end justify-between gap-6">
+        <div className="mx-auto max-w-6xl px-6 py-12 lg:px-8 lg:py-14">
+          <div className="mb-8 flex items-end justify-between gap-6">
             <div>
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
                 Aktualności
