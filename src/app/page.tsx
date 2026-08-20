@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const posts = [
   {
     date: "18 sierpnia 2026",
@@ -46,12 +48,12 @@ export default function Home() {
             </p>
 
             <div className="mt-9 flex flex-wrap gap-4">
-              <a
-                href="/o-nas"
-                className="rounded-full bg-zinc-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-zinc-700"
-              >
-                Poznaj nas
-              </a>
+              <Link
+  href="/o-nas"
+  className="rounded-full bg-zinc-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-zinc-700"
+>
+  Poznaj nas
+</Link>
 
               <a
                 href="#aktualnosci"
