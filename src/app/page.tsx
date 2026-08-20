@@ -22,66 +22,126 @@ function formatDate(dateString: string) {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-zinc-900">
-      {/* Sekcja główna */}
-      <section className="border-b border-zinc-200">
-        <div className="mx-auto max-w-6xl px-6 py-24 lg:px-8 lg:py-32">
+    <main className="min-h-screen bg-white text-slate-900">
+      {/* Hero */}
+      <section className="bg-[#08265c]">
+        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <picture>
+            <source
+              media="(max-width: 640px)"
+              srcSet="/kierunek-studiow/images/hero-mobile.png"
+            />
+            <img
+              src="/kierunek-studiow/images/hero-desktop.png"
+              alt="Inwestycje i analiza danych – II edycja studiów magisterskich"
+              className="w-full rounded-2xl object-cover shadow-xl"
+            />
+          </picture>
+        </div>
+      </section>
+
+      {/* Wprowadzenie */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
           <div className="max-w-3xl">
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500">
-              Kierunek studiów
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+              Wydział Zarządzania Uniwersytetu Warszawskiego
             </p>
 
-            <h1 className="text-5xl font-semibold tracking-tight text-zinc-950 sm:text-6xl lg:text-7xl">
-              Wiedza, która
-              <br />
-              <span className="text-zinc-400">otwiera możliwości.</span>
+            <h1 className="text-4xl font-semibold tracking-tight text-[#08265c] sm:text-5xl lg:text-6xl">
+              Inwestycje i analiza danych
             </h1>
 
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-zinc-600">
-              Poznaj nasz kierunek, dowiedz się więcej o studiach i bądź na
-              bieżąco z najważniejszymi wydarzeniami.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              3-semestralne studia magisterskie dla osób, które chcą łączyć
+              wiedzę z zakresu inwestycji, finansów i analizy danych oraz
+              podejmować decyzje oparte na rzetelnych informacjach.
             </p>
+          </div>
 
-            <div className="mt-9 flex flex-wrap gap-4">
-              <Link
-                href="/o-nas"
-                className="rounded-full bg-zinc-950 px-6 py-3 text-sm font-medium text-white transition hover:bg-zinc-700"
-              >
-                Poznaj nas
-              </Link>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <p className="text-sm font-medium text-slate-500">Forma studiów</p>
+              <p className="mt-2 text-xl font-semibold text-[#08265c]">
+                Studia II stopnia
+              </p>
+            </div>
 
-              <a
-                href="#aktualnosci"
-                className="rounded-full border border-zinc-300 px-6 py-3 text-sm font-medium text-zinc-900 transition hover:border-zinc-950"
-              >
-                Aktualności
-              </a>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <p className="text-sm font-medium text-slate-500">Czas trwania</p>
+              <p className="mt-2 text-xl font-semibold text-[#08265c]">
+                3 semestry
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <p className="text-sm font-medium text-slate-500">Edycja</p>
+              <p className="mt-2 text-xl font-semibold text-[#08265c]">
+                II edycja
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <p className="text-sm font-medium text-slate-500">Uczelnia</p>
+              <p className="mt-2 text-xl font-semibold text-[#08265c]">
+                Uniwersytet Warszawski
+              </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Facebook CTA */}
+      <section className="bg-[#08265c] text-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-14 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div className="max-w-3xl">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+              Facebook
+            </p>
+
+            <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+              Bądź na bieżąco z życiem kierunku
+            </h2>
+
+            <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-200">
+              Aktualności, wydarzenia, informacje o rekrutacji i materiały
+              związane z kierunkiem publikujemy również na naszej stronie
+              Facebook.
+            </p>
+          </div>
+
+          <a
+            href="https://www.facebook.com/profile.php?id=61576578910562"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#2f97d1] px-7 py-4 text-base font-semibold text-white transition hover:bg-[#2584b9]"
+          >
+            Odwiedź nas na Facebooku →
+          </a>
+        </div>
+      </section>
+
       {/* Aktualności */}
-      <section id="aktualnosci" className="bg-zinc-50">
+      <section id="aktualnosci" className="bg-[#f4f8fc]">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:px-8 lg:py-24">
           <div className="mb-12 flex items-end justify-between gap-6">
             <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500">
-                Facebook
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+                Aktualności
               </p>
 
-              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                Aktualności
+              <h2 className="text-3xl font-semibold tracking-tight text-[#08265c] sm:text-4xl">
+                Najnowsze informacje
               </h2>
             </div>
 
-            <span className="hidden text-sm text-zinc-500 sm:block">
-              Najnowsze informacje z naszego kierunku
+            <span className="hidden text-sm text-slate-500 sm:block">
+              Automatycznie pobierane z Facebooka
             </span>
           </div>
 
           {facebookPosts.length === 0 ? (
-            <div className="rounded-2xl border border-zinc-200 bg-white p-8 text-zinc-600">
+            <div className="rounded-2xl border border-slate-200 bg-white p-8 text-slate-600">
               Brak aktualności do wyświetlenia.
             </div>
           ) : (
@@ -89,10 +149,10 @@ export default function Home() {
               {facebookPosts.map((post) => (
                 <article
                   key={post.id}
-                  className="overflow-hidden rounded-2xl border border-zinc-200 bg-white transition hover:-translate-y-1 hover:shadow-lg"
+                  className="overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-xl"
                 >
                   {post.full_picture && (
-                    <div className="relative aspect-[16/9] w-full bg-zinc-100">
+                    <div className="relative aspect-[16/9] w-full bg-slate-100">
                       <Image
                         src={post.full_picture}
                         alt=""
@@ -105,32 +165,32 @@ export default function Home() {
 
                   <div className="p-7">
                     <div className="mb-5 flex items-center justify-between gap-4">
-                      <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-600">
+                      <span className="rounded-full bg-[#e8f4fb] px-3 py-1 text-xs font-semibold text-[#1679ad]">
                         Facebook
                       </span>
 
-                      <span className="text-xs text-zinc-400">
+                      <span className="text-xs text-slate-400">
                         {formatDate(post.created_time)}
                       </span>
                     </div>
 
                     {post.message ? (
-                      <p className="whitespace-pre-line text-base leading-7 text-zinc-700">
+                      <p className="whitespace-pre-line text-base leading-7 text-slate-700">
                         {post.message}
                       </p>
                     ) : (
-                      <p className="text-base leading-7 text-zinc-500">
+                      <p className="text-base leading-7 text-slate-500">
                         Post bez treści tekstowej.
                       </p>
                     )}
 
                     {post.permalink_url && (
-                      <div className="mt-7 border-t border-zinc-100 pt-5">
+                      <div className="mt-7 border-t border-slate-100 pt-5">
                         <a
                           href={post.permalink_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm font-medium text-zinc-900 hover:underline"
+                          className="text-sm font-semibold text-[#08265c] hover:text-[#2f97d1]"
                         >
                           Zobacz post na Facebooku →
                         </a>
@@ -141,6 +201,32 @@ export default function Home() {
               ))}
             </div>
           )}
+        </div>
+      </section>
+
+      {/* Dolne CTA */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
+          <div className="rounded-3xl bg-[#e9c93e] px-8 py-10 text-[#08265c] lg:flex lg:items-center lg:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em]">
+                II edycja
+              </p>
+
+              <h2 className="mt-2 text-3xl font-semibold tracking-tight">
+                3-semestralne studia magisterskie
+              </h2>
+            </div>
+
+            <div className="mt-6 lg:mt-0">
+              <Link
+                href="/o-nas"
+                className="inline-flex rounded-full bg-[#08265c] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#113b82]"
+              >
+                Dowiedz się więcej
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </main>

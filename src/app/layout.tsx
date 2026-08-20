@@ -15,8 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nazwa kierunku",
-  description: "Oficjalna strona kierunku studiów",
+  title: "Inwestycje i analiza danych | Wydział Zarządzania UW",
+  description:
+    "Oficjalna strona kierunku Inwestycje i analiza danych na Wydziale Zarządzania Uniwersytetu Warszawskiego.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -25,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="pl"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
-      <body className="min-h-screen bg-white text-zinc-900">
+      <body className="min-h-screen bg-white text-slate-900">
         <Header />
 
         {children}
