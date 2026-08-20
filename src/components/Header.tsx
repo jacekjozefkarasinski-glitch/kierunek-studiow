@@ -21,7 +21,7 @@ export default function Header() {
           aria-label="Główna nawigacja"
         >
           <Link
-  href="/#aktualnosci"
+  href="/aktualnosci"
   className="hidden text-sm font-medium text-slate-600 transition hover:text-[#2f97d1] md:block"
 >
   Aktualności

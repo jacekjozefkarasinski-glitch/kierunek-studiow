@@ -10,7 +10,9 @@ type FacebookPost = {
   full_picture?: string;
 };
 
-const facebookPosts = posts as FacebookPost[];
+const facebookPosts = (posts as FacebookPost[])
+  .filter((post) => post.message && post.message.trim().length > 0)
+  .slice(0, 6);
 
 function formatDate(dateString: string) {
   return new Intl.DateTimeFormat("pl-PL", {
@@ -31,6 +33,7 @@ export default function Home() {
               media="(max-width: 640px)"
               srcSet="/kierunek-studiow/images/hero-mobile.png"
             />
+
             <img
               src="/kierunek-studiow/images/hero-desktop.png"
               alt="Inwestycje i analiza danych – II edycja studiów magisterskich"
@@ -61,28 +64,36 @@ export default function Home() {
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <p className="text-sm font-medium text-slate-500">Forma studiów</p>
+              <p className="text-sm font-medium text-slate-500">
+                Forma studiów
+              </p>
               <p className="mt-2 text-xl font-semibold text-[#08265c]">
                 Studia II stopnia
               </p>
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <p className="text-sm font-medium text-slate-500">Czas trwania</p>
+              <p className="text-sm font-medium text-slate-500">
+                Czas trwania
+              </p>
               <p className="mt-2 text-xl font-semibold text-[#08265c]">
                 3 semestry
               </p>
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <p className="text-sm font-medium text-slate-500">Edycja</p>
+              <p className="text-sm font-medium text-slate-500">
+                Edycja
+              </p>
               <p className="mt-2 text-xl font-semibold text-[#08265c]">
                 II edycja
               </p>
             </div>
 
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <p className="text-sm font-medium text-slate-500">Uczelnia</p>
+              <p className="text-sm font-medium text-slate-500">
+                Uczelnia
+              </p>
               <p className="mt-2 text-xl font-semibold text-[#08265c]">
                 Uniwersytet Warszawski
               </p>
@@ -145,61 +156,66 @@ export default function Home() {
               Brak aktualności do wyświetlenia.
             </div>
           ) : (
-            <div className="grid gap-6 md:grid-cols-2">
-              {facebookPosts.map((post) => (
-                <article
-                  key={post.id}
-                  className="overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-xl"
-                >
-                  {post.full_picture && (
-                    <div className="relative aspect-[16/9] w-full bg-slate-100">
-                      <Image
-                        src={post.full_picture}
-                        alt=""
-                        fill
-                        unoptimized
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
+            <>
+              <div className="grid gap-6 md:grid-cols-2">
+                {facebookPosts.map((post) => (
+                  <article
+                    key={post.id}
+                    className="overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-xl"
+                  >
+                    {post.full_picture && (
+                      <div className="relative aspect-[16/9] w-full bg-slate-100">
+                        <Image
+                          src={post.full_picture}
+                          alt=""
+                          fill
+                          unoptimized
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
 
-                  <div className="p-7">
-                    <div className="mb-5 flex items-center justify-between gap-4">
-                      <span className="rounded-full bg-[#e8f4fb] px-3 py-1 text-xs font-semibold text-[#1679ad]">
-                        Facebook
-                      </span>
+                    <div className="p-7">
+                      <div className="mb-5 flex items-center justify-between gap-4">
+                        <span className="rounded-full bg-[#e8f4fb] px-3 py-1 text-xs font-semibold text-[#1679ad]">
+                          Facebook
+                        </span>
 
-                      <span className="text-xs text-slate-400">
-                        {formatDate(post.created_time)}
-                      </span>
-                    </div>
+                        <span className="text-xs text-slate-400">
+                          {formatDate(post.created_time)}
+                        </span>
+                      </div>
 
-                    {post.message ? (
                       <p className="whitespace-pre-line text-base leading-7 text-slate-700">
                         {post.message}
                       </p>
-                    ) : (
-                      <p className="text-base leading-7 text-slate-500">
-                        Post bez treści tekstowej.
-                      </p>
-                    )}
 
-                    {post.permalink_url && (
-                      <div className="mt-7 border-t border-slate-100 pt-5">
-                        <a
-                          href={post.permalink_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm font-semibold text-[#08265c] hover:text-[#2f97d1]"
-                        >
-                          Zobacz post na Facebooku →
-                        </a>
-                      </div>
-                    )}
-                  </div>
-                </article>
-              ))}
-            </div>
+                      {post.permalink_url && (
+                        <div className="mt-7 border-t border-slate-100 pt-5">
+                          <a
+                            href={post.permalink_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm font-semibold text-[#08265c] hover:text-[#2f97d1]"
+                          >
+                            Zobacz post na Facebooku →
+                          </a>
+                        </div>
+                      )}
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mt-12 flex justify-center">
+                <Link
+                  href="/aktualnosci"
+                  className="inline-flex items-center justify-center rounded-full bg-[#08265c] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[#113b82]"
+                >
+                  Zobacz wszystkie aktualności →
+                </Link>
+              </div>
+            </>
           )}
         </div>
       </section>
