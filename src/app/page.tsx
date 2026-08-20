@@ -186,9 +186,9 @@ export default function Home() {
                         </span>
                       </div>
 
-                      <p className="whitespace-pre-line text-base leading-7 text-slate-700">
-                        {post.message}
-                      </p>
+                      <p className="line-clamp-5 whitespace-pre-line text-base leading-7 text-slate-700">
+  {post.message}
+</p>
 
                       {post.permalink_url && (
                         <div className="mt-7 border-t border-slate-100 pt-5">

@@ -91,8 +91,7 @@ export default function AktualnosciPage() {
               {visiblePosts.map((post) => (
                 <article
                   key={post.id}
-                  className="overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-xl"
-                >
+className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-xl"                >
                   {post.full_picture && (
                     <div className="relative aspect-[16/9] w-full bg-slate-100">
                       <Image
@@ -105,7 +104,7 @@ export default function AktualnosciPage() {
                     </div>
                   )}
 
-                  <div className="p-7">
+                  <div className="flex flex-1 flex-col p-7">
                     <div className="mb-5 flex items-center justify-between gap-4">
                       <span className="rounded-full bg-[#e8f4fb] px-3 py-1 text-xs font-semibold text-[#1679ad]">
                         Facebook
@@ -121,7 +120,7 @@ export default function AktualnosciPage() {
                     </p>
 
                     {post.permalink_url && (
-                      <div className="mt-7 border-t border-slate-100 pt-5">
+                      <div className="mt-auto border-t border-slate-100 pt-5">
                         <a
                           href={post.permalink_url}
                           target="_blank"
