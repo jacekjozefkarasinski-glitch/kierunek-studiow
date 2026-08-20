@@ -10,6 +10,7 @@ type FacebookPost = {
   created_time: string;
   permalink_url?: string;
   full_picture?: string;
+  video_url?: string;
 };
 
 const POSTS_PER_BATCH = 12;
@@ -92,17 +93,29 @@ export default function AktualnosciPage() {
                 <article
                   key={post.id}
 className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-xl"                >
-                  {post.full_picture && (
-                    <div className="relative aspect-[16/9] w-full bg-slate-100">
-                      <Image
-                        src={post.full_picture}
-                        alt=""
-                        fill
-                        unoptimized
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
+                  {post.video_url ? (
+  <div className="aspect-video w-full bg-black">
+    <video
+      controls
+      preload="metadata"
+      poster={post.full_picture}
+      className="h-full w-full object-contain"
+    >
+      <source src={post.video_url} />
+      Twoja przeglądarka nie obsługuje odtwarzania wideo.
+    </video>
+  </div>
+) : post.full_picture ? (
+  <div className="relative aspect-[16/9] w-full bg-slate-100">
+    <Image
+      src={post.full_picture}
+      alt=""
+      fill
+      unoptimized
+      className="object-cover"
+    />
+  </div>
+) : null}
 
                   <div className="flex flex-1 flex-col p-7">
                     <div className="mb-5 flex items-center justify-between gap-4">
