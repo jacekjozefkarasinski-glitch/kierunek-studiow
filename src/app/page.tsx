@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import BackgroundSlideshow from "@/components/BackgroundSlideshow";
 import posts from "@/data/facebook-posts.json";
 
 type FacebookPost = {
@@ -44,47 +45,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Wprowadzenie */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8 lg:py-12">
-          <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
-  {/* Tekst */}
-  <div>
-    <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
-      Wydział Zarządzania Uniwersytetu Warszawskiego
-    </p>
+{/* Wprowadzenie ze zmieniającymi się zdjęciami Wydziału w tle */}
+<section className="relative overflow-hidden">
+  <BackgroundSlideshow />
 
-    <h1 className="text-4xl font-semibold tracking-tight text-[#08265c] sm:text-5xl lg:text-6xl">
-      Inwestycje i analiza danych
-    </h1>
+        {/* Treść */}
+        <div className="relative z-10">
+          <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8 lg:py-12">
+            <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
+              {/* Tekst */}
+              <div>
+                <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+                  Wydział Zarządzania Uniwersytetu Warszawskiego
+                </p>
 
-    <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-      3-semestralne studia magisterskie dla osób, które chcą łączyć
-      wiedzę z zakresu inwestycji, finansów i analizy danych oraz
-      podejmować decyzje oparte na rzetelnych informacjach.
-    </p>
-  </div>
+                <h1 className="text-4xl font-semibold tracking-tight text-[#08265c] sm:text-5xl lg:text-6xl">
+                  Inwestycje i analiza danych
+                </h1>
 
-  {/* Duże logotypy */}
+                <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">
+                  3-semestralne studia magisterskie dla osób, które chcą łączyć
+                  wiedzę z zakresu inwestycji, finansów i analizy danych oraz
+                  podejmować decyzje oparte na rzetelnych informacjach.
+                </p>
+              </div>
+
+              {/* Duże logotypy */}
 <div className="flex items-center justify-center gap-8 lg:justify-end">
   {/* Logo kierunku */}
-  <div className="relative h-44 w-44 shrink-0 overflow-hidden rounded-full">
+  <div className="relative h-44 w-44 shrink-0">
     <Image
-      src="/kierunek-studiow/images/logo-kierunku.png"
+      src="/kierunek-studiow/images/logo-kierunku-transparent.png"
       alt="Logo kierunku Inwestycje i analiza danych"
       fill
       unoptimized
-      className="scale-[1] object-cover"
+      className="object-contain"
     />
   </div>
 
   {/* Separator */}
-  <div className="hidden h-36 w-px bg-slate-200 sm:block" />
+  <div className="hidden h-36 w-px bg-[#08265c]/20 sm:block" />
 
   {/* Logo Wydziału */}
   <div className="relative h-24 w-80">
     <Image
-      src="/kierunek-studiow/images/logo-wydzialu.png"
+      src="/kierunek-studiow/images/logo-wydzialu-transparent.png"
       alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
       fill
       unoptimized
@@ -92,56 +97,104 @@ export default function Home() {
     />
   </div>
 </div>
-</div>
-
-          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <p className="text-sm font-medium text-slate-500">
-                Forma studiów
-              </p>
-              <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                Studia II stopnia
-              </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-  <p className="text-sm font-medium text-slate-500">
-    Tryb
-  </p>
-  <p className="mt-2 text-xl font-semibold text-[#08265c]">
-    Stacjonarne i zaoczne
-  </p>
-</div>
+            {/* Kafelki */}
+            <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+              <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+                <p className="text-sm font-medium text-slate-500">
+                  Forma studiów
+                </p>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <p className="text-sm font-medium text-slate-500">
-                Czas trwania
-              </p>
-              <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                3 semestry
-              </p>
-            </div>
+                <p className="mt-2 text-xl font-semibold text-[#08265c]">
+                  Studia II stopnia
+                </p>
+              </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <p className="text-sm font-medium text-slate-500">
-                Edycja
-              </p>
-              <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                II edycja
-              </p>
-            </div>
+              <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+                <p className="text-sm font-medium text-slate-500">
+                  Tryb
+                </p>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
-              <p className="text-sm font-medium text-slate-500">
-                Uczelnia
-              </p>
-              <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                Uniwersytet Warszawski Wydział Zarządzania
-              </p>
+                <p className="mt-2 text-xl font-semibold text-[#08265c]">
+                  Stacjonarne i zaoczne
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+                <p className="text-sm font-medium text-slate-500">
+                  Czas trwania
+                </p>
+
+                <p className="mt-2 text-xl font-semibold text-[#08265c]">
+                  3 semestry
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+                <p className="text-sm font-medium text-slate-500">
+                  Edycja
+                </p>
+
+                <p className="mt-2 text-xl font-semibold text-[#08265c]">
+                  II edycja
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+                <p className="text-sm font-medium text-slate-500">
+                  Uczelnia
+                </p>
+
+                <p className="mt-2 text-xl font-semibold text-[#08265c]">
+                  Uniwersytet Warszawski
+                  <br />
+                  Wydział Zarządzania
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+{/* Rekrutacja CTA */}
+<section className="bg-[#e9c93e]">
+  <div className="mx-auto max-w-6xl px-6 py-6 lg:px-8">
+    <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+      
+      {/* Tekst */}
+      <div>
+        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+          Rekrutacja
+        </p>
+
+        <h2 className="text-2xl font-semibold tracking-tight text-[#08265c]">
+          Zapoznaj się z zasadami rekrutacji i aplikuj na nasz kierunek
+        </h2>
+      </div>
+
+      {/* Przyciski */}
+      <div className="flex shrink-0 flex-wrap gap-3">
+        <Link
+          href="/dolacz-do-nas"
+          className="inline-flex items-center justify-center rounded-full bg-[#08265c] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#113b82]"
+        >
+          Dołącz do nas →
+        </Link>
+
+        <a
+          href="https://irk.uw.edu.pl/pl/offer/PELNE2026/field/P_IAD/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center rounded-full bg-[#2f97d1] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#2584b9]"
+        >
+          IRK ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* Facebook CTA */}
       <section className="bg-[#08265c] text-white">
@@ -205,28 +258,29 @@ export default function Home() {
                     className="overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-xl"
                   >
                     {post.video_url ? (
-  <div className="aspect-video w-full bg-black">
-    <video
-      controls
-      preload="metadata"
-      poster={post.full_picture}
-      className="h-full w-full object-contain"
-    >
-      <source src={post.video_url} />
-      Twoja przeglądarka nie obsługuje odtwarzania wideo.
-    </video>
-  </div>
-) : post.full_picture ? (
-  <div className="relative aspect-[16/9] w-full bg-slate-100">
-    <Image
-      src={post.full_picture}
-      alt=""
-      fill
-      unoptimized
-      className="object-cover"
-    />
-  </div>
-) : null}
+                      <div className="aspect-video w-full bg-black">
+                        <video
+                          controls
+                          preload="metadata"
+                          poster={post.full_picture}
+                          className="h-full w-full object-contain"
+                        >
+                          <source src={post.video_url} />
+
+                          Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                        </video>
+                      </div>
+                    ) : post.full_picture ? (
+                      <div className="relative aspect-[16/9] w-full bg-slate-100">
+                        <Image
+                          src={post.full_picture}
+                          alt=""
+                          fill
+                          unoptimized
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : null}
 
                     <div className="p-7">
                       <div className="mb-5 flex items-center justify-between gap-4">
@@ -240,8 +294,8 @@ export default function Home() {
                       </div>
 
                       <p className="line-clamp-5 whitespace-pre-line text-base leading-7 text-slate-700">
-  {post.message}
-</p>
+                        {post.message}
+                      </p>
 
                       {post.permalink_url && (
                         <div className="mt-7 border-t border-slate-100 pt-5">
@@ -249,7 +303,7 @@ export default function Home() {
                             href={post.permalink_url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-sm font-semibold text-[#08265c] hover:text-[#2f97d1]"
+                            className="text-sm font-semibold text-[#08265c] transition hover:text-[#2f97d1]"
                           >
                             Zobacz post na Facebooku →
                           </a>

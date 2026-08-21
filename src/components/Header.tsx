@@ -45,9 +45,18 @@ export default function Header() {
 
         {/* Nawigacja */}
         <nav
-          className="flex items-center gap-4 sm:gap-6"
+          className="flex items-center gap-3 sm:gap-4"
           aria-label="Główna nawigacja"
         >
+          {/* Dołącz do nas */}
+          <Link
+            href="/dolacz-do-nas"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#e9c93e] px-4 py-2.5 text-sm font-semibold text-[#08265c] transition hover:bg-[#f1d75d] hover:shadow-md"
+          >
+            Dołącz do nas
+          </Link>
+
+          {/* Aktualności */}
           <Link
             href="/#aktualnosci"
             className="hidden text-sm font-medium text-slate-600 transition hover:text-[#2f97d1] md:block"
@@ -55,6 +64,7 @@ export default function Header() {
             Aktualności
           </Link>
 
+          {/* O nas */}
           <Link
             href="/o-nas"
             className="text-sm font-medium text-slate-600 transition hover:text-[#2f97d1]"
@@ -62,6 +72,7 @@ export default function Header() {
             O nas
           </Link>
 
+          {/* Kontakt */}
           <Link
             href="/kontakt"
             className="text-sm font-medium text-slate-600 transition hover:text-[#2f97d1]"
@@ -69,6 +80,7 @@ export default function Header() {
             Kontakt
           </Link>
 
+          {/* Facebook */}
           <a
             href="https://www.facebook.com/profile.php?id=61576578910562"
             target="_blank"
