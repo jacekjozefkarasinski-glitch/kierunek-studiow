@@ -69,34 +69,36 @@ export default function Home() {
       </div>
 
       {/* Duże logotypy */}
-      <div className="flex min-w-0 items-center justify-center gap-4 sm:gap-6 lg:justify-end lg:gap-8">
-        {/* Logo kierunku */}
-        <div className="relative h-32 w-32 shrink-0 sm:h-40 sm:w-40 lg:h-44 lg:w-44">
-          <Image
-            src="/kierunek-studiow/images/logo-kierunku-transparent.png"
-            alt="Logo kierunku Inwestycje i analiza danych"
-            fill
-            unoptimized
-            sizes="(max-width: 640px) 128px, 176px"
-            className="object-contain"
-          />
-        </div>
+<div className="flex min-w-0 items-center justify-center gap-4 sm:gap-6 lg:flex-col lg:gap-5">
 
-        {/* Separator */}
-        <div className="h-24 w-px shrink-0 bg-slate-300 sm:h-32 lg:h-36" />
+  {/* Logo kierunku */}
+  <div className="relative h-32 w-32 shrink-0 sm:h-40 sm:w-40 lg:h-44 lg:w-44">
+    <Image
+      src="/kierunek-studiow/images/logo-kierunku-transparent.png"
+      alt="Logo kierunku Inwestycje i analiza danych"
+      fill
+      unoptimized
+      sizes="(max-width: 640px) 128px, 176px"
+      className="object-contain"
+    />
+  </div>
 
-        {/* Logo Wydziału */}
-        <div className="relative h-16 min-w-0 flex-1 sm:h-20 lg:h-24 lg:max-w-80">
-          <Image
-            src="/kierunek-studiow/images/logo-wydzialu-transparent.png"
-            alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
-            fill
-            unoptimized
-            sizes="(max-width: 640px) 45vw, 320px"
-            className="object-contain object-left"
-          />
-        </div>
-      </div>
+  {/* Separator */}
+  <div className="h-24 w-px shrink-0 bg-slate-300 sm:h-32 lg:h-px lg:w-72" />
+
+  {/* Logo Wydziału */}
+  <div className="relative h-16 min-w-0 flex-1 sm:h-20 lg:h-24 lg:w-80 lg:flex-none">
+    <Image
+      src="/kierunek-studiow/images/logo-wydzialu-transparent.png"
+      alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
+      fill
+      unoptimized
+      sizes="(max-width: 640px) 45vw, 320px"
+      className="object-contain object-center"
+    />
+  </div>
+
+</div>
     </div>
 
     {/* Kafelki */}
