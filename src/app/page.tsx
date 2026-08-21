@@ -47,23 +47,54 @@ export default function Home() {
       {/* Wprowadzenie */}
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8 lg:py-12">
-          <div className="max-w-3xl">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
-              Wydział Zarządzania Uniwersytetu Warszawskiego
-            </p>
+          <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
+  {/* Tekst */}
+  <div>
+    <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+      Wydział Zarządzania Uniwersytetu Warszawskiego
+    </p>
 
-            <h1 className="text-4xl font-semibold tracking-tight text-[#08265c] sm:text-5xl lg:text-6xl">
-              Inwestycje i analiza danych
-            </h1>
+    <h1 className="text-4xl font-semibold tracking-tight text-[#08265c] sm:text-5xl lg:text-6xl">
+      Inwestycje i analiza danych
+    </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-              3-semestralne studia magisterskie dla osób, które chcą łączyć
-              wiedzę z zakresu inwestycji, finansów i analizy danych oraz
-              podejmować decyzje oparte na rzetelnych informacjach.
-            </p>
-          </div>
+    <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+      3-semestralne studia magisterskie dla osób, które chcą łączyć
+      wiedzę z zakresu inwestycji, finansów i analizy danych oraz
+      podejmować decyzje oparte na rzetelnych informacjach.
+    </p>
+  </div>
 
-          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+  {/* Duże logotypy */}
+<div className="flex items-center justify-center gap-8 lg:justify-end">
+  {/* Logo kierunku */}
+  <div className="relative h-44 w-44 shrink-0 overflow-hidden rounded-full">
+    <Image
+      src="/kierunek-studiow/images/logo-kierunku.png"
+      alt="Logo kierunku Inwestycje i analiza danych"
+      fill
+      unoptimized
+      className="scale-[1] object-cover"
+    />
+  </div>
+
+  {/* Separator */}
+  <div className="hidden h-36 w-px bg-slate-200 sm:block" />
+
+  {/* Logo Wydziału */}
+  <div className="relative h-24 w-80">
+    <Image
+      src="/kierunek-studiow/images/logo-wydzialu.png"
+      alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
+      fill
+      unoptimized
+      className="object-contain object-left"
+    />
+  </div>
+</div>
+</div>
+
+          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
               <p className="text-sm font-medium text-slate-500">
                 Forma studiów
@@ -72,6 +103,15 @@ export default function Home() {
                 Studia II stopnia
               </p>
             </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+  <p className="text-sm font-medium text-slate-500">
+    Tryb
+  </p>
+  <p className="mt-2 text-xl font-semibold text-[#08265c]">
+    Stacjonarne i zaoczne
+  </p>
+</div>
 
             <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
               <p className="text-sm font-medium text-slate-500">
@@ -96,7 +136,7 @@ export default function Home() {
                 Uczelnia
               </p>
               <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                Uniwersytet Warszawski
+                Uniwersytet Warszawski Wydział Zarządzania
               </p>
             </div>
           </div>

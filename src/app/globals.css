@@ -24,3 +24,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.logo-wz-blue {
+  filter: brightness(0) saturate(100%)
+    invert(13%)
+    sepia(42%)
+    saturate(2307%)
+    hue-rotate(190deg)
+    brightness(82%)
+    contrast(105%);
+}
