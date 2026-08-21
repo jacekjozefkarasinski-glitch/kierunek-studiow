@@ -61,11 +61,11 @@ export default function Home() {
           Inwestycje i analiza danych
         </h1>
 
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">
-          3-semestralne studia magisterskie dla osób, które chcą łączyć
-          wiedzę z zakresu inwestycji, finansów i analizy danych oraz
-          podejmować decyzje oparte na rzetelnych informacjach.
-        </p>
+        <p className="mt-6 max-w-2xl text-lg font-semibold leading-8 text-slate-700">
+  3-semestralne studia magisterskie dla osób, które chcą łączyć
+  wiedzę z zakresu inwestycji, finansów i analizy danych oraz
+  podejmować decyzje oparte na rzetelnych informacjach.
+</p>
       </div>
 
       {/* Duże logotypy */}
