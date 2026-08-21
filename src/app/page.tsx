@@ -49,113 +49,107 @@ export default function Home() {
 <section className="relative overflow-hidden">
   <BackgroundSlideshow />
 
-        {/* Treść */}
-        <div className="relative z-10">
-          <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8 lg:py-12">
-            <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
-              {/* Tekst */}
-              <div>
-                <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
-                  Wydział Zarządzania Uniwersytetu Warszawskiego
-                </p>
+  <div className="relative z-10 mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
+    <div className="grid min-w-0 gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-center lg:gap-10">
+      {/* Tekst */}
+      <div className="min-w-0">
+        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+          Wydział Zarządzania Uniwersytetu Warszawskiego
+        </p>
 
-                <h1 className="text-4xl font-semibold tracking-tight text-[#08265c] sm:text-5xl lg:text-6xl">
-                  Inwestycje i analiza danych
-                </h1>
+        <h1 className="break-words text-4xl font-semibold tracking-tight text-[#08265c] sm:text-5xl lg:text-6xl">
+          Inwestycje i analiza danych
+        </h1>
 
-                <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">
-                  3-semestralne studia magisterskie dla osób, które chcą łączyć
-                  wiedzę z zakresu inwestycji, finansów i analizy danych oraz
-                  podejmować decyzje oparte na rzetelnych informacjach.
-                </p>
-              </div>
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">
+          3-semestralne studia magisterskie dla osób, które chcą łączyć
+          wiedzę z zakresu inwestycji, finansów i analizy danych oraz
+          podejmować decyzje oparte na rzetelnych informacjach.
+        </p>
+      </div>
 
-              {/* Duże logotypy */}
-<div className="flex items-center justify-center gap-8 lg:justify-end">
-  {/* Logo kierunku */}
-  <div className="relative h-44 w-44 shrink-0">
-    <Image
-      src="/kierunek-studiow/images/logo-kierunku-transparent.png"
-      alt="Logo kierunku Inwestycje i analiza danych"
-      fill
-      unoptimized
-      className="object-contain"
-    />
-  </div>
-
-  {/* Separator */}
-  <div className="hidden h-36 w-px bg-[#08265c]/20 sm:block" />
-
-  {/* Logo Wydziału */}
-  <div className="relative h-24 w-80">
-    <Image
-      src="/kierunek-studiow/images/logo-wydzialu-transparent.png"
-      alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
-      fill
-      unoptimized
-      className="object-contain object-left"
-    />
-  </div>
-</div>
-            </div>
-
-            {/* Kafelki */}
-            <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-              <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
-                <p className="text-sm font-medium text-slate-500">
-                  Forma studiów
-                </p>
-
-                <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                  Studia II stopnia
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
-                <p className="text-sm font-medium text-slate-500">
-                  Tryb
-                </p>
-
-                <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                  Stacjonarne i zaoczne
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
-                <p className="text-sm font-medium text-slate-500">
-                  Czas trwania
-                </p>
-
-                <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                  3 semestry
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
-                <p className="text-sm font-medium text-slate-500">
-                  Edycja
-                </p>
-
-                <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                  II edycja
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
-                <p className="text-sm font-medium text-slate-500">
-                  Uczelnia
-                </p>
-
-                <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                  Uniwersytet Warszawski
-                  <br />
-                  Wydział Zarządzania
-                </p>
-              </div>
-            </div>
-          </div>
+      {/* Duże logotypy */}
+      <div className="flex min-w-0 items-center justify-center gap-4 sm:gap-6 lg:justify-end lg:gap-8">
+        {/* Logo kierunku */}
+        <div className="relative h-32 w-32 shrink-0 sm:h-40 sm:w-40 lg:h-44 lg:w-44">
+          <Image
+            src="/kierunek-studiow/images/logo-kierunku-transparent.png"
+            alt="Logo kierunku Inwestycje i analiza danych"
+            fill
+            unoptimized
+            sizes="(max-width: 640px) 128px, 176px"
+            className="object-contain"
+          />
         </div>
-      </section>
+
+        {/* Separator */}
+        <div className="h-24 w-px shrink-0 bg-slate-300 sm:h-32 lg:h-36" />
+
+        {/* Logo Wydziału */}
+        <div className="relative h-16 min-w-0 flex-1 sm:h-20 lg:h-24 lg:max-w-80">
+          <Image
+            src="/kierunek-studiow/images/logo-wydzialu-transparent.png"
+            alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
+            fill
+            unoptimized
+            sizes="(max-width: 640px) 45vw, 320px"
+            className="object-contain object-left"
+          />
+        </div>
+      </div>
+    </div>
+
+    {/* Kafelki */}
+    <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+        <p className="text-sm font-medium text-slate-500">
+          Forma studiów
+        </p>
+        <p className="mt-2 text-xl font-semibold text-[#08265c]">
+          Studia II stopnia
+        </p>
+      </div>
+
+      <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+        <p className="text-sm font-medium text-slate-500">
+          Tryb
+        </p>
+        <p className="mt-2 text-xl font-semibold text-[#08265c]">
+          Stacjonarne i zaoczne
+        </p>
+      </div>
+
+      <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+        <p className="text-sm font-medium text-slate-500">
+          Czas trwania
+        </p>
+        <p className="mt-2 text-xl font-semibold text-[#08265c]">
+          3 semestry
+        </p>
+      </div>
+
+      <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+        <p className="text-sm font-medium text-slate-500">
+          Edycja
+        </p>
+        <p className="mt-2 text-xl font-semibold text-[#08265c]">
+          II edycja
+        </p>
+      </div>
+
+      <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+        <p className="text-sm font-medium text-slate-500">
+          Uczelnia
+        </p>
+        <p className="mt-2 text-xl font-semibold text-[#08265c]">
+          Uniwersytet Warszawski
+          <br />
+          Wydział Zarządzania
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 {/* Rekrutacja CTA */}
 <section className="bg-[#e9c93e]">
