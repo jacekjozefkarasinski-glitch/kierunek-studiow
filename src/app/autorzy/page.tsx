@@ -4,6 +4,7 @@ const team = [
   {
     name: "Dr hab. prof. ucz. Renata Karkowska",
     role: "Dyrektor Centrum",
+    email: "rkarkowska@wz.uw.edu.pl",
     image:
       "https://wz.uw.edu.pl/wp-content/uploads/2025/12/Renata-karkowska-zdjecie-3-e1765375784289.jpg",
     linkedin: "https://www.linkedin.com/in/renata-karkowska-42baa280/",
@@ -13,6 +14,7 @@ const team = [
   {
     name: "Dr Szczepan Urjasz",
     role: "Sekretarz Centrum",
+    email: "surjasz@wz.uw.edu.pl",
     image:
       "https://wz.uw.edu.pl/wp-content/uploads/2025/05/zdjecie_Szczepan_Urjasz-e1753265984901.jpg",
     linkedin: "https://www.linkedin.com/in/urjasz/",
@@ -22,6 +24,7 @@ const team = [
   {
     name: "Dr Jacek Karasiński",
     role: "",
+    email: "jkarasinski@wz.uw.edu.pl",
     image:
       "https://wz.uw.edu.pl/wp-content/uploads/2025/05/Jacek-Karasinski-e1753265951709.jpg",
     linkedin: "https://www.linkedin.com/in/jacek-karasinski/?locale=pl",
@@ -31,6 +34,7 @@ const team = [
   {
     name: "Mgr Karolina Siwiec",
     role: "",
+    email: "ksiwiec@wz.uw.edu.pl",
     image:
       "https://wz.uw.edu.pl/wp-content/uploads/2025/05/Karolina-Siwiec-rotated.jpg",
     linkedin: "https://www.linkedin.com/in/siwiec-karolina/",
@@ -40,6 +44,7 @@ const team = [
   {
     name: "Mgr Edyta Wojciechowska",
     role: "",
+    email: "e.wojciechowska3@uw.edu.pl",
     image:
       "https://wz.uw.edu.pl/wp-content/uploads/2025/05/Edyta-Wojciechowska-e1753266037425.jpg",
     linkedin:
@@ -50,6 +55,7 @@ const team = [
   {
     name: "Mgr Patryk Zduńczak",
     role: "",
+    email: "pzdunczak@wz.uw.edu.pl",
     image:
       "https://wz.uw.edu.pl/wp-content/uploads/2025/11/Patryk-Zdunczak-Zdjecie.png",
     linkedin: "https://www.linkedin.com/in/pzdunczak/",
@@ -59,6 +65,7 @@ const team = [
   {
     name: "Mgr Konrad Kochalski",
     role: "",
+    email: "k.kochalski@uw.edu.pl",
     image:
       "https://wz.uw.edu.pl/wp-content/uploads/2026/01/Konrad-Kochalski.jpg",
     linkedin: "https://www.linkedin.com/in/konrad-kochalski-63206029b/",
@@ -70,7 +77,6 @@ const team = [
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-
       {/* HERO */}
       <section className="bg-[#08265c] text-white">
         <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
@@ -90,13 +96,9 @@ export default function AboutPage() {
 
       {/* AUTORZY PROGRAMU — ZDJĘCIA WYDZIAŁU W TLE */}
       <section className="relative overflow-hidden">
-
-        {/* Slideshow */}
         <BackgroundSlideshow />
 
-        {/* Treść nad slideshow */}
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
-
           <div className="max-w-4xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
               Autorzy programu
@@ -115,14 +117,11 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Karta Centrum */}
+          {/* KARTA CENTRUM */}
           <div className="mt-8 rounded-3xl border border-white/80 bg-white/95 p-6 shadow-lg backdrop-blur-sm sm:p-8">
-
             <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-
               {/* Przyciski */}
               <div className="flex flex-col items-start gap-3">
-
                 <a
                   href="https://wz.uw.edu.pl/wydzial/struktura/centra-naukowo-badawcze/centrum-badan-nad-rynkiem-finansowym/"
                   target="_blank"
@@ -157,7 +156,6 @@ export default function AboutPage() {
                   className="h-auto max-h-40 w-auto max-w-full object-contain sm:max-h-44 lg:max-h-48 lg:max-w-[320px]"
                 />
               </div>
-
             </div>
           </div>
         </div>
@@ -166,7 +164,6 @@ export default function AboutPage() {
       {/* ZESPÓŁ */}
       <section className="bg-[#f4f8fc]">
         <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
-
           <div className="mb-10 max-w-4xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
               Nasz zespół
@@ -190,19 +187,17 @@ export default function AboutPage() {
                 className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg"
               >
                 <div className="grid md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr]">
-
                   {/* Zdjęcie */}
-                  <div className="flex items-center justify-center bg-slate-50 p-5 sm:p-6">
-                    <img
-                      src={person.image}
-                      alt={person.name}
-                      className="max-h-[380px] h-auto w-auto max-w-full object-contain"
-                    />
-                  </div>
+<div className="flex items-center justify-center bg-slate-50 p-5 sm:p-6">
+  <img
+    src={person.image}
+    alt={person.name}
+    className="h-auto max-h-[380px] w-auto max-w-full rounded-2xl object-contain shadow-sm"
+  />
+</div>
 
                   {/* Informacje */}
                   <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
-
                     <h3 className="text-2xl font-semibold tracking-tight text-[#08265c]">
                       {person.name}
                     </h3>
@@ -212,6 +207,17 @@ export default function AboutPage() {
                         {person.role}
                       </p>
                     )}
+
+                    {/* E-mail */}
+                    <p className="mt-3 text-sm text-slate-500">
+                      E-mail:{" "}
+                      <a
+                        href={`mailto:${person.email}`}
+                        className="font-semibold text-[#08265c] transition hover:text-[#2f97d1]"
+                      >
+                        {person.email}
+                      </a>
+                    </p>
 
                     <p className="mt-5 text-base leading-7 text-slate-600">
                       {person.description}
@@ -235,20 +241,17 @@ export default function AboutPage() {
                         LinkedIn ↗
                       </a>
                     </div>
-
                   </div>
                 </div>
               </article>
             ))}
           </div>
-
         </div>
       </section>
 
       {/* DOLNE CTA */}
       <section className="bg-[#e9c93e] text-[#08265c]">
         <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8">
-
           <p className="text-sm font-semibold uppercase tracking-[0.2em]">
             Inwestycje i analiza danych
           </p>
@@ -256,10 +259,8 @@ export default function AboutPage() {
           <h2 className="mt-2 max-w-3xl text-3xl font-semibold tracking-tight">
             Program tworzony przez naukowców i praktyków rynku finansowego
           </h2>
-
         </div>
       </section>
-
     </main>
   );
 }

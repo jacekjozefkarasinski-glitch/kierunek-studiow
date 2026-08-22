@@ -339,7 +339,7 @@ export default function Home() {
 
             <div className="mt-6 lg:mt-0">
               <Link
-                href="/o-nas"
+                href="/program"
                 className="inline-flex rounded-full bg-[#08265c] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#113b82]"
               >
                 Dowiedz się więcej

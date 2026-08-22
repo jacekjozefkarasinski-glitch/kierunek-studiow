@@ -24,7 +24,7 @@ export default function Header() {
             {/* Logo kierunku */}
             <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full">
               <Image
-                src="/kierunek-studiow/images/logo-kierunku.png"
+                src="/kierunek-studiow/images/logo-kierunku-transparent.png"
                 alt="Logo kierunku Inwestycje i analiza danych"
                 fill
                 className="scale-[1.03] object-cover"
@@ -32,14 +32,14 @@ export default function Header() {
             </div>
 
             {/* Logo Wydziału */}
-            <div className="relative h-10 w-48">
-              <Image
-                src="/kierunek-studiow/images/logo-wydzialu.png"
-                alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
-                fill
-                className="object-contain object-left"
-              />
-            </div>
+<div className="relative h-12 w-52 shrink-0 lg:h-14 lg:w-60">
+  <Image
+    src="/kierunek-studiow/images/logo-wydzialu-transparent.png"
+    alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
+    fill
+    className="object-contain object-left"
+  />
+</div>
           </div>
         </div>
 
