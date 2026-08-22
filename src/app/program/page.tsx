@@ -1,9 +1,9 @@
 import Link from "next/link";
+import BackgroundSlideshow from "@/components/BackgroundSlideshow";
 
 export default function ProgramPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-
       {/* Hero */}
       <section className="bg-[#08265c] text-white">
         <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
@@ -22,10 +22,18 @@ export default function ProgramPage() {
         </div>
       </section>
 
-      {/* Cele programu */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
+      {/* Cele programu – zdjęcia Wydziału w tle */}
+      <section className="relative overflow-hidden">
+        {/* Pokaz slajdów */}
+        <div className="absolute inset-0">
+          <BackgroundSlideshow />
 
+          {/* Jasna warstwa zapewniająca czytelność */}
+          <div className="absolute inset-0 bg-white/5" />
+        </div>
+
+        {/* Treść sekcji */}
+        <div className="relative z-10 mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
           <div className="max-w-4xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
               Program
@@ -37,9 +45,8 @@ export default function ProgramPage() {
           </div>
 
           <div className="mt-9 grid gap-5">
-
             {/* Punkt 1 */}
-            <div className="flex gap-5 rounded-2xl border border-slate-200 bg-[#f4f8fc] p-6 sm:p-7">
+            <div className="flex gap-5 rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm backdrop-blur-sm sm:p-7">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#08265c] font-semibold text-white">
                 1
               </div>
@@ -52,7 +59,7 @@ export default function ProgramPage() {
             </div>
 
             {/* Punkt 2 */}
-            <div className="flex gap-5 rounded-2xl border border-slate-200 bg-[#f4f8fc] p-6 sm:p-7">
+            <div className="flex gap-5 rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm backdrop-blur-sm sm:p-7">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#08265c] font-semibold text-white">
                 2
               </div>
@@ -66,7 +73,7 @@ export default function ProgramPage() {
             </div>
 
             {/* Punkt 3 */}
-            <div className="flex gap-5 rounded-2xl border border-slate-200 bg-[#f4f8fc] p-6 sm:p-7">
+            <div className="flex gap-5 rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm backdrop-blur-sm sm:p-7">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#08265c] font-semibold text-white">
                 3
               </div>
@@ -80,7 +87,7 @@ export default function ProgramPage() {
             </div>
 
             {/* Punkt 4 */}
-            <div className="flex gap-5 rounded-2xl border border-slate-200 bg-[#f4f8fc] p-6 sm:p-7">
+            <div className="flex gap-5 rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm backdrop-blur-sm sm:p-7">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#08265c] font-semibold text-white">
                 4
               </div>
@@ -94,7 +101,7 @@ export default function ProgramPage() {
             </div>
 
             {/* Punkt 5 */}
-            <div className="flex gap-5 rounded-2xl border border-slate-200 bg-[#f4f8fc] p-6 sm:p-7">
+            <div className="flex gap-5 rounded-2xl border border-white/70 bg-white/90 p-6 shadow-sm backdrop-blur-sm sm:p-7">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#08265c] font-semibold text-white">
                 5
               </div>
@@ -107,7 +114,6 @@ export default function ProgramPage() {
                 rynku krajowym, jak i międzynarodowym.
               </p>
             </div>
-
           </div>
         </div>
       </section>
@@ -115,9 +121,7 @@ export default function ProgramPage() {
       {/* Atuty kierunku */}
       <section className="bg-[#08265c] text-white">
         <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
-
           <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-14">
-
             <div>
               <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
                 Dlaczego warto
@@ -143,7 +147,6 @@ export default function ProgramPage() {
                 funkcjonowania sektora finansowego i niefinansowego.
               </p>
             </div>
-
           </div>
         </div>
       </section>
@@ -151,7 +154,6 @@ export default function ProgramPage() {
       {/* Szczegółowe informacje */}
       <section className="bg-[#f4f8fc]">
         <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
-
           <div className="mb-8 max-w-3xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
               Program i organizacja studiów
@@ -168,7 +170,6 @@ export default function ProgramPage() {
           </div>
 
           <div className="grid gap-5 md:grid-cols-2">
-
             {/* Studia stacjonarne */}
             <a
               href="https://wz.uw.edu.pl/student/studia-magisterskie/inwestycje-i-analiza-danych/dzienne/"
@@ -218,7 +219,6 @@ export default function ProgramPage() {
                 Zobacz szczegóły →
               </p>
             </a>
-
           </div>
         </div>
       </section>
@@ -226,7 +226,6 @@ export default function ProgramPage() {
       {/* Rekrutacja */}
       <section className="bg-[#e9c93e] text-[#08265c]">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-9 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em]">
               Rekrutacja
@@ -254,7 +253,6 @@ export default function ProgramPage() {
               IRK ↗
             </a>
           </div>
-
         </div>
       </section>
     </main>

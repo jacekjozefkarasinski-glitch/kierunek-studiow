@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import BackgroundSlideshow from "@/components/BackgroundSlideshow";
 import posts from "@/data/facebook-posts.json";
 
 type FacebookPost = {
@@ -62,9 +63,13 @@ export default function AktualnosciPage() {
 
   return (
     <main className="min-h-screen bg-[#f4f8fc] text-slate-900">
-      {/* Nagłówek strony */}
-      <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
+      {/* Nagłówek strony ze zdjęciami Wydziału w tle */}
+      <section className="relative overflow-hidden border-b border-slate-200">
+        {/* Dokładnie ten sam slideshow co na stronie głównej */}
+        <BackgroundSlideshow />
+
+        {/* Treść nagłówka */}
+        <div className="relative z-10 mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
             Facebook
           </p>
@@ -73,7 +78,7 @@ export default function AktualnosciPage() {
             Wszystkie aktualności
           </h1>
 
-          <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+          <p className="mt-5 max-w-2xl text-lg font-medium leading-8 text-slate-700">
             Pełne archiwum postów publikowanych na stronie kierunku.
             Przewijaj w dół, aby zobaczyć starsze wpisy.
           </p>
@@ -92,30 +97,31 @@ export default function AktualnosciPage() {
               {visiblePosts.map((post) => (
                 <article
                   key={post.id}
-className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-xl"                >
+                  className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-xl"
+                >
                   {post.video_url ? (
-  <div className="aspect-video w-full bg-black">
-    <video
-      controls
-      preload="metadata"
-      poster={post.full_picture}
-      className="h-full w-full object-contain"
-    >
-      <source src={post.video_url} />
-      Twoja przeglądarka nie obsługuje odtwarzania wideo.
-    </video>
-  </div>
-) : post.full_picture ? (
-  <div className="relative aspect-[16/9] w-full bg-slate-100">
-    <Image
-      src={post.full_picture}
-      alt=""
-      fill
-      unoptimized
-      className="object-cover"
-    />
-  </div>
-) : null}
+                    <div className="aspect-video w-full bg-black">
+                      <video
+                        controls
+                        preload="metadata"
+                        poster={post.full_picture}
+                        className="h-full w-full object-contain"
+                      >
+                        <source src={post.video_url} />
+                        Twoja przeglądarka nie obsługuje odtwarzania wideo.
+                      </video>
+                    </div>
+                  ) : post.full_picture ? (
+                    <div className="relative aspect-[16/9] w-full bg-slate-100">
+                      <Image
+                        src={post.full_picture}
+                        alt=""
+                        fill
+                        unoptimized
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : null}
 
                   <div className="flex flex-1 flex-col p-7">
                     <div className="mb-5 flex items-center justify-between gap-4">
@@ -150,6 +156,7 @@ className="flex h-full flex-col overflow-hidden rounded-2xl border border-slate-
             </div>
           )}
 
+          {/* Trigger do automatycznego wczytywania kolejnych postów */}
           <div ref={loaderRef} className="h-12" />
 
           {visibleCount < allPosts.length ? (
