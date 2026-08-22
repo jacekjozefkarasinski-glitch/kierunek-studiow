@@ -64,26 +64,59 @@ export default function AktualnosciPage() {
   return (
     <main className="min-h-screen bg-[#f4f8fc] text-slate-900">
       {/* Nagłówek strony ze zdjęciami Wydziału w tle */}
-      <section className="relative overflow-hidden border-b border-slate-200">
-        {/* Dokładnie ten sam slideshow co na stronie głównej */}
-        <BackgroundSlideshow />
+<section className="relative overflow-hidden border-b border-slate-200">
+  {/* Pokaz slajdów — pozostaje bez zmian */}
+  <BackgroundSlideshow />
 
-        {/* Treść nagłówka */}
-        <div className="relative z-10 mx-auto max-w-6xl px-6 py-16 lg:px-8 lg:py-20">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
-            Facebook
-          </p>
+  {/* Treść nagłówka */}
+  <div className="relative z-10 mx-auto max-w-6xl px-6 py-10 lg:px-8 lg:py-10">
+    <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-16">
 
-          <h1 className="text-4xl font-semibold tracking-tight text-[#08265c] sm:text-5xl">
-            Wszystkie aktualności
-          </h1>
+      {/* Tekst */}
+      <div>
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+          Facebook
+        </p>
 
-          <p className="mt-5 max-w-2xl text-lg font-medium leading-8 text-slate-700">
-            Pełne archiwum postów publikowanych na stronie kierunku.
-            Przewijaj w dół, aby zobaczyć starsze wpisy.
-          </p>
+        <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-[#08265c] sm:text-5xl">
+          Wszystkie aktualności
+        </h1>
+
+        <p className="mt-5 max-w-3xl text-lg font-medium leading-8 text-slate-700">
+          Pełne archiwum postów publikowanych na stronie kierunku.
+          Przewijaj w dół, aby zobaczyć starsze wpisy.
+        </p>
+      </div>
+
+      {/* Logotypy */}
+      <div className="flex items-center gap-7 sm:gap-10 lg:flex-col lg:items-center lg:gap-6">
+
+        {/* Logo kierunku */}
+        <div className="relative h-28 w-28 shrink-0 sm:h-32 sm:w-32 lg:h-36 lg:w-36">
+          <Image
+            src="/kierunek-studiow/images/logo-kierunku-transparent.png"
+            alt="Logo kierunku Inwestycje i analiza danych"
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
-      </section>
+
+        {/* Logo Wydziału */}
+        <div className="relative h-20 w-52 sm:w-64 lg:h-24 lg:w-72">
+          <Image
+            src="/kierunek-studiow/images/logo-wydzialu-transparent.png"
+            alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Lista postów */}
       <section>

@@ -1,25 +1,60 @@
 import BackgroundSlideshow from "@/components/BackgroundSlideshow";
+import Image from "next/image";
+
 
 export default function KontaktPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
       {/* HERO */}
-      <section className="bg-[#08265c] text-white">
-        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
-            Inwestycje i analiza danych
-          </p>
+<section className="bg-[#08265c] text-white">
+  <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8 lg:py-10">
+    <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-16">
 
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Kontakt
-          </h1>
+      {/* Tekst */}
+      <div>
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+          Inwestycje i analiza danych
+        </p>
 
-          <p className="mt-5 max-w-3xl text-lg font-medium leading-8 text-slate-200">
-            Masz pytania dotyczące kierunku, programu lub rekrutacji?
-            Skontaktuj się z nami.
-          </p>
+        <h1 className="max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl">
+          Kontakt
+        </h1>
+
+        <p className="mt-5 max-w-3xl text-lg font-medium leading-8 text-slate-200">
+          Masz pytania dotyczące kierunku, programu lub rekrutacji?
+          Skontaktuj się z nami.
+        </p>
+      </div>
+
+      {/* Logotypy */}
+      <div className="flex items-center gap-7 sm:gap-10 lg:flex-col lg:items-center lg:gap-6">
+
+        {/* Logo kierunku */}
+        <div className="relative h-28 w-28 shrink-0 sm:h-32 sm:w-32 lg:h-36 lg:w-36">
+          <Image
+            src="/kierunek-studiow/images/logo-kierunku-transparent.png"
+            alt="Logo kierunku Inwestycje i analiza danych"
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
-      </section>
+
+        {/* Logo Wydziału */}
+        <div className="relative h-20 w-52 sm:w-64 lg:h-24 lg:w-72">
+          <Image
+            src="/kierunek-studiow/images/logo-wydzialu-biale-transparentne.png"
+            alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
+            fill
+            className="object-contain"
+            priority
+          />
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* MESSENGER */}
       <section className="relative overflow-hidden">
