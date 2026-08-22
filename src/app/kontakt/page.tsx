@@ -1,48 +1,176 @@
-export default function ContactPage() {
+export default function KontaktPage() {
   return (
-    <main className="min-h-screen bg-white text-zinc-900">
-      <section className="mx-auto max-w-4xl px-6 py-24 lg:px-8 lg:py-32">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-zinc-500">
-          Kontakt
-        </p>
+    <main className="min-h-screen bg-white text-slate-900">
+      {/* Hero */}
+      <section className="bg-[#08265c] text-white">
+        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+            Inwestycje i analiza danych
+          </p>
 
-        <h1 className="text-5xl font-semibold tracking-tight text-zinc-950 sm:text-6xl">
-          Skontaktuj się z nami.
-        </h1>
+          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+            Kontakt
+          </h1>
 
-        <div className="mt-10 grid gap-10 sm:grid-cols-2">
-          <div>
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-zinc-500">
-              Adres
-            </h2>
+          <p className="mt-5 max-w-3xl text-lg font-medium leading-8 text-slate-200">
+            Masz pytania dotyczące kierunku, programu lub rekrutacji?
+            Skontaktuj się z nami.
+          </p>
+        </div>
+      </section>
 
-            <p className="mt-3 text-lg leading-8 text-zinc-700">
-              Nazwa uczelni
-              <br />
-              Wydział / Instytut
-              <br />
-              ul. Przykładowa 1
-              <br />
-              00-000 Miasto
+      {/* Messenger */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-12 lg:px-8">
+          <div className="rounded-3xl bg-[#f4f8fc] p-7 sm:p-9 lg:flex lg:items-center lg:justify-between lg:gap-10">
+            <div className="max-w-3xl">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+                Napisz do nas
+              </p>
+
+              <h2 className="text-3xl font-semibold tracking-tight text-[#08265c]">
+                Skontaktuj się z nami przez Messengera
+              </h2>
+
+              <p className="mt-4 text-lg leading-8 text-slate-600">
+                Najszybciej możesz skontaktować się z nami, wysyłając
+                wiadomość przez stronę kierunku na Facebooku.
+              </p>
+            </div>
+
+            <a
+              href="https://www.facebook.com/profile.php?id=61576578910562"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex shrink-0 items-center justify-center rounded-full bg-[#1877F2] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[#1468d4] lg:mt-0"
+            >
+              Napisz przez Messenger →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Dane kontaktowe */}
+      <section className="bg-[#f4f8fc]">
+        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8">
+          <div className="mb-9">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+              Wydział Zarządzania UW
             </p>
+
+            <h2 className="text-3xl font-semibold tracking-tight text-[#08265c] sm:text-4xl">
+              Adres i dane kontaktowe
+            </h2>
           </div>
 
-          <div>
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-zinc-500">
-              Kontakt
-            </h2>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+              <p className="text-sm font-medium text-slate-500">
+                Adres
+              </p>
 
-            <p className="mt-3 text-lg leading-8 text-zinc-700">
+              <p className="mt-3 font-semibold leading-7 text-[#08265c]">
+                Wydział Zarządzania
+                <br />
+                Uniwersytet Warszawski
+                <br />
+                ul. Szturmowa 1/3
+                <br />
+                02-678 Warszawa
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+              <p className="text-sm font-medium text-slate-500">
+                E-mail
+              </p>
+
               <a
-                href="mailto:kontakt@example.pl"
-                className="hover:underline"
+                href="mailto:wz@wz.uw.edu.pl"
+                className="mt-3 block font-semibold text-[#08265c] transition hover:text-[#2f97d1]"
               >
-                kontakt@example.pl
+                wz@wz.uw.edu.pl
               </a>
-              <br />
-              +48 000 000 000
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+              <p className="text-sm font-medium text-slate-500">
+                Sekretariat Dziekana
+              </p>
+
+              <a
+                href="tel:+48225534002"
+                className="mt-3 block font-semibold text-[#08265c] transition hover:text-[#2f97d1]"
+              >
+                +48 22 55 34 002
+              </a>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-6">
+              <p className="text-sm font-medium text-slate-500">
+                Sekcja Rekrutacji
+              </p>
+
+              <a
+                href="tel:+48225534190"
+                className="mt-3 block font-semibold text-[#08265c] transition hover:text-[#2f97d1]"
+              >
+                +48 22 55 34 190
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-7">
+            <a
+              href="https://wz.uw.edu.pl/kontakt/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex rounded-full border-2 border-[#08265c] px-6 py-3 text-sm font-semibold text-[#08265c] transition hover:bg-[#08265c] hover:text-white"
+            >
+              Pełne dane kontaktowe WZ UW ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Mapa */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8">
+          <div className="mb-8">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+              Lokalizacja
+            </p>
+
+            <h2 className="text-3xl font-semibold tracking-tight text-[#08265c]">
+              Jak do nas trafić?
+            </h2>
+
+            <p className="mt-4 text-lg text-slate-600">
+              Wydział Zarządzania UW, ul. Szturmowa 1/3, Warszawa.
             </p>
           </div>
+
+          <div className="overflow-hidden rounded-3xl border border-slate-200 shadow-sm">
+            <iframe
+              src="https://www.google.com/maps?q=Wydział%20Zarządzania%20Uniwersytetu%20Warszawskiego%20Szturmowa%201%2F3%20Warszawa&output=embed"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Mapa Wydziału Zarządzania Uniwersytetu Warszawskiego"
+            />
+          </div>
+
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Wydział+Zarządzania+Uniwersytetu+Warszawskiego+Szturmowa+1%2F3+Warszawa"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex rounded-full bg-[#08265c] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#113b82]"
+          >
+            Otwórz w Google Maps ↗
+          </a>
         </div>
       </section>
     </main>

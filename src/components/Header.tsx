@@ -56,6 +56,14 @@ export default function Header() {
             Dołącz do nas
           </Link>
 
+          {/* Program */}
+<Link
+  href="/program"
+  className="hidden text-sm font-medium text-slate-600 transition hover:text-[#2f97d1] md:block"
+>
+  Program
+</Link>
+
           {/* Aktualności */}
           <Link
             href="/aktualnosci"
@@ -64,13 +72,13 @@ export default function Header() {
             Aktualności
           </Link>
 
-          {/* O nas */}
+          {/* Autorzy */}
           <Link
-            href="/o-nas"
-            className="text-sm font-medium text-slate-600 transition hover:text-[#2f97d1]"
-          >
-            O nas
-          </Link>
+  href="/autorzy"
+  className="text-sm font-medium text-slate-600 transition hover:text-[#2f97d1]"
+>
+  Autorzy
+</Link>
 
           {/* Kontakt */}
           <Link
