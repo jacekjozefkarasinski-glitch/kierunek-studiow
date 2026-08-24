@@ -39,10 +39,18 @@ jobs:
         run: npm ci
 
       - name: Fetch Facebook posts
-        continue-on-error: true
         env:
           FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
-        run: node scripts/fetch-facebook-posts.mjs
+        shell: bash
+        run: |
+          cp src/data/facebook-posts.json /tmp/facebook-posts-backup.json
+
+          if node scripts/fetch-facebook-posts.mjs; then
+            echo "Facebook posts downloaded successfully."
+          else
+            echo "Facebook download failed. Restoring previous posts."
+            cp /tmp/facebook-posts-backup.json src/data/facebook-posts.json
+          fi
 
       - name: Build
         run: npm run build
