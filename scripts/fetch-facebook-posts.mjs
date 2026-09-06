@@ -5,6 +5,12 @@ const PAGE_ID = "620140001190559";
 const ACCESS_TOKEN = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
 const API_VERSION = "v26.0";
 
+/*
+ * Pobieramy tylko 10 najnowszych postów.
+ * Pełna historia pozostaje w facebook-posts.json.
+ */
+const FETCH_LIMIT = 10;
+
 const outputDirectory = path.join(
   process.cwd(),
   "src",
@@ -30,10 +36,10 @@ const fields = [
   "attachments{media_type,target,url}",
 ].join(",");
 
-let url =
+const url =
   `https://graph.facebook.com/${API_VERSION}/${PAGE_ID}/posts` +
   `?fields=${encodeURIComponent(fields)}` +
-  `&limit=100` +
+  `&limit=${FETCH_LIMIT}` +
   `&access_token=${encodeURIComponent(ACCESS_TOKEN)}`;
 
 
@@ -65,6 +71,10 @@ function loadExistingPosts() {
 
     console.error(error);
 
+    /*
+     * Nie kontynuujemy, ponieważ nie chcemy
+     * przypadkowo nadpisać archiwum.
+     */
     process.exit(1);
   }
 }
@@ -144,20 +154,74 @@ async function getVideoSource(videoId) {
 
 async function main() {
   console.log("========================================");
-  console.log("PEŁNE POBIERANIE HISTORII FACEBOOKA");
+  console.log("AKTUALIZACJA FACEBOOKA");
   console.log("========================================");
 
+  /*
+   * Najpierw wczytujemy pełne istniejące archiwum.
+   */
   const existingPosts = loadExistingPosts();
 
   console.log(
     `Postów w istniejącym archiwum: ${existingPosts.length}`
   );
 
+  console.log(
+    `Pobieranie ${FETCH_LIMIT} najnowszych postów z Facebooka...`
+  );
+
+
+  /* =======================================================
+     POBIERANIE 10 NAJNOWSZYCH POSTÓW
+     ======================================================= */
+
+  const response = await fetch(url);
+
+  if (!response.ok) {
+    const error = await response.text();
+
+    console.error("Facebook API error:");
+    console.error(error);
+
+    /*
+     * Przy błędzie API nie zapisujemy niczego.
+     * Istniejące 65+ postów pozostaje nietknięte.
+     */
+    throw new Error(
+      "Nie udało się pobrać postów z Facebooka. Archiwum pozostaje bez zmian."
+    );
+  }
+
+  const data = await response.json();
+
+  const facebookPosts = data.data ?? [];
+
+  console.log(
+    `Facebook zwrócił ${facebookPosts.length} postów.`
+  );
+
+
   /*
-   * Tworzymy Mapę na podstawie istniejącego archiwum.
-   * Dzięki temu niczego nie kasujemy i nie tworzymy
-   * duplikatów.
+   * Jeżeli Facebook zwróci pustą odpowiedź,
+   * nie wolno nadpisywać archiwum.
    */
+  if (facebookPosts.length === 0) {
+    console.log(
+      "Facebook zwrócił 0 postów."
+    );
+
+    console.log(
+      "Istniejące archiwum pozostaje bez zmian."
+    );
+
+    return;
+  }
+
+
+  /* =======================================================
+     MAPA ISTNIEJĄCEGO ARCHIWUM
+     ======================================================= */
+
   const postsById = new Map();
 
   for (const post of existingPosts) {
@@ -166,108 +230,77 @@ async function main() {
     }
   }
 
-  let downloadedCount = 0;
-  let pageNumber = 0;
+  const existingIds = new Set(
+    existingPosts
+      .filter((post) => post?.id)
+      .map((post) => post.id)
+  );
+
+  let newPostsCount = 0;
 
 
   /* =======================================================
-     PAGINACJA — POBIERAMY WSZYSTKIE DOSTĘPNE STRONY
+     ŁĄCZENIE NOWYCH POSTÓW Z ARCHIWUM
      ======================================================= */
 
-  while (url) {
-    pageNumber++;
+  for (const post of facebookPosts) {
+    const existingPost = postsById.get(post.id);
 
-    console.log("");
-    console.log(
-      `Pobieranie strony ${pageNumber}...`
-    );
-
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      const error = await response.text();
-
-      console.error("Facebook API error:");
-      console.error(error);
-
-      /*
-       * Jeżeli Facebook przerwie pobieranie,
-       * NIE zapisujemy częściowego archiwum.
-       */
-      throw new Error(
-        "Facebook przerwał pobieranie historii. Archiwum pozostaje bez zmian."
-      );
-    }
-
-    const data = await response.json();
-
-    const facebookPosts = data.data ?? [];
-
-    console.log(
-      `Facebook zwrócił ${facebookPosts.length} postów.`
-    );
-
-    for (const post of facebookPosts) {
-      const oldPost = postsById.get(post.id);
-
-      let videoUrl =
-        oldPost?.video_url ?? null;
-
-      /*
-       * Źródło filmu pobieramy tylko wtedy,
-       * gdy jeszcze go nie mamy.
-       */
-      if (!videoUrl) {
-        const videoId = getVideoId(post);
-
-        if (videoId) {
-          videoUrl = await getVideoSource(videoId);
-
-          if (videoUrl) {
-            console.log(
-              `Znaleziono wideo dla posta ${post.id}`
-            );
-          }
-        }
-      }
-
-      postsById.set(post.id, {
-        id: post.id,
-        message: post.message,
-        created_time: post.created_time,
-        permalink_url: post.permalink_url,
-        full_picture: post.full_picture,
-        video_url: videoUrl,
-      });
-
-      downloadedCount++;
-    }
-
-    console.log(
-      `Pobrano z API: ${downloadedCount}`
-    );
-
-    console.log(
-      `Unikalnych postów w archiwum: ${postsById.size}`
-    );
+    let videoUrl =
+      existingPost?.video_url ?? null;
 
     /*
-     * Facebook podaje adres następnej strony.
-     * Jeśli go nie ma, dotarliśmy do końca historii.
+     * Jeżeli nie mamy jeszcze źródła filmu,
+     * próbujemy je pobrać.
      */
-    url = data.paging?.next ?? null;
+    if (!videoUrl) {
+      const videoId = getVideoId(post);
+
+      if (videoId) {
+        videoUrl = await getVideoSource(videoId);
+
+        if (videoUrl) {
+          console.log(
+            `Znaleziono wideo dla posta ${post.id}`
+          );
+        }
+      }
+    }
+
+    /*
+     * Liczymy rzeczywiście nowe posty.
+     */
+    if (!existingIds.has(post.id)) {
+      newPostsCount++;
+    }
+
+    /*
+     * Aktualizujemy istniejący post albo
+     * dodajemy nowy.
+     */
+    postsById.set(post.id, {
+      id: post.id,
+      message: post.message,
+      created_time: post.created_time,
+      permalink_url: post.permalink_url,
+      full_picture: post.full_picture,
+      video_url: videoUrl,
+    });
   }
 
 
   /* =======================================================
-     BUDOWANIE PEŁNEGO ARCHIWUM
+     PEŁNE ARCHIWUM
      ======================================================= */
 
-  const completeArchive = Array.from(
+  const mergedPosts = Array.from(
     postsById.values()
   );
 
-  completeArchive.sort((a, b) => {
+  /*
+   * Sortujemy od najnowszego do najstarszego.
+   */
+  mergedPosts.sort((a, b) => {
     return (
       new Date(b.created_time).getTime() -
       new Date(a.created_time).getTime()
@@ -275,22 +308,35 @@ async function main() {
   });
 
 
+  console.log(
+    `Nowych postów: ${newPostsCount}`
+  );
+
+  console.log(
+    `Postów po połączeniu: ${mergedPosts.length}`
+  );
+
+
   /* =======================================================
-     ZABEZPIECZENIA
+     ZABEZPIECZENIA ARCHIWUM
      ======================================================= */
 
-  if (completeArchive.length === 0) {
+  /*
+   * Absolutnie nie pozwalamy, żeby aktualizacja
+   * zmniejszyła istniejące archiwum.
+   */
+  if (
+    existingPosts.length > 0 &&
+    mergedPosts.length < existingPosts.length
+  ) {
     throw new Error(
-      "Facebook zwrócił puste archiwum. Zapis anulowany."
+      "Nowe dane zmniejszyłyby istniejące archiwum. Zapis anulowany."
     );
   }
 
-  if (
-    existingPosts.length > 0 &&
-    completeArchive.length < existingPosts.length
-  ) {
+  if (mergedPosts.length === 0) {
     throw new Error(
-      "Nowe archiwum jest mniejsze od istniejącego. Zapis anulowany."
+      "Archiwum byłoby puste. Zapis anulowany."
     );
   }
 
@@ -306,18 +352,22 @@ async function main() {
     }
   );
 
+  /*
+   * Najpierw zapisujemy plik tymczasowy.
+   */
   const temporaryFile =
     `${outputFile}.tmp`;
 
   fs.writeFileSync(
     temporaryFile,
-    JSON.stringify(completeArchive, null, 2),
+    JSON.stringify(mergedPosts, null, 2),
     "utf8"
   );
 
 
   /*
-   * Kontrola pliku przed zastąpieniem archiwum.
+   * Sprawdzamy zapisany JSON przed zastąpieniem
+   * właściwego archiwum.
    */
   const verification = JSON.parse(
     fs.readFileSync(
@@ -335,6 +385,7 @@ async function main() {
   }
 
   if (
+    existingPosts.length > 0 &&
     verification.length < existingPosts.length
   ) {
     fs.unlinkSync(temporaryFile);
@@ -346,7 +397,8 @@ async function main() {
 
 
   /*
-   * Dopiero teraz zastępujemy właściwy JSON.
+   * Dopiero po wszystkich kontrolach
+   * zastępujemy właściwy plik.
    */
   fs.renameSync(
     temporaryFile,
@@ -356,19 +408,19 @@ async function main() {
 
   console.log("");
   console.log("========================================");
-  console.log("PEŁNA HISTORIA POBRANA");
+  console.log("AKTUALIZACJA ZAKOŃCZONA");
   console.log("========================================");
 
   console.log(
-    `Postów przed pobieraniem: ${existingPosts.length}`
+    `Postów przed aktualizacją: ${existingPosts.length}`
   );
 
   console.log(
-    `Pobrano z Facebook API: ${downloadedCount}`
+    `Nowych postów: ${newPostsCount}`
   );
 
   console.log(
-    `Postów w archiwum: ${completeArchive.length}`
+    `Postów w archiwum: ${mergedPosts.length}`
   );
 
   console.log(
@@ -381,8 +433,12 @@ async function main() {
 
 main().catch((error) => {
   console.error("");
-  console.error("Błąd pobierania Facebooka:");
+  console.error("Błąd aktualizacji Facebooka:");
   console.error(error.message);
 
+  /*
+   * GitHub Actions otrzyma kod błędu.
+   * Workflow przywróci backup archiwum.
+   */
   process.exitCode = 1;
 });
