@@ -5,12 +5,17 @@ on:
     branches: ["main"]
 
   schedule:
-    - cron: "0 * * * *"
+    # GitHub Actions cron działa w UTC.
+    # Uruchamiamy workflow o 10:00, 11:00, 16:00, 17:00, 20:00 i 21:00 UTC,
+    # a poniżej sprawdzamy czas Europe/Warsaw.
+    # Dzięki temu 12:00, 18:00 i 22:00 działają poprawnie
+    # zarówno w czasie letnim, jak i zimowym.
+    - cron: "0 10,11,16,17,20,21 * * *"
 
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -25,6 +30,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Check scheduled time
+        id: schedule_check
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" != "schedule" ]; then
+            echo "run_fetch=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          WARSAW_HOUR=$(TZ=Europe/Warsaw date +%H)
+
+          echo "Current Warsaw hour: $WARSAW_HOUR"
+
+          if [[ "$WARSAW_HOUR" == "12" || "$WARSAW_HOUR" == "18" || "$WARSAW_HOUR" == "22" ]]; then
+            echo "run_fetch=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run_fetch=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -38,18 +64,40 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Fetch Facebook posts
-        env:
-          FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
+      - name: Backup Facebook archive
+        if: steps.schedule_check.outputs.run_fetch == 'true'
         shell: bash
         run: |
           cp src/data/facebook-posts.json /tmp/facebook-posts-backup.json
 
-          if node scripts/fetch-facebook-posts.mjs; then
-            echo "Facebook posts downloaded successfully."
+      - name: Fetch Facebook posts
+        id: facebook
+        if: steps.schedule_check.outputs.run_fetch == 'true'
+        continue-on-error: true
+        env:
+          FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
+        run: node scripts/fetch-facebook-posts.mjs
+
+      - name: Restore archive if Facebook failed
+        if: steps.schedule_check.outputs.run_fetch == 'true' && steps.facebook.outcome == 'failure'
+        shell: bash
+        run: |
+          echo "Facebook API failed. Restoring previous archive."
+          cp /tmp/facebook-posts-backup.json src/data/facebook-posts.json
+
+      - name: Save Facebook archive
+        if: steps.schedule_check.outputs.run_fetch == 'true' && steps.facebook.outcome == 'success'
+        shell: bash
+        run: |
+          if git diff --quiet -- src/data/facebook-posts.json; then
+            echo "No new Facebook posts."
           else
-            echo "Facebook download failed. Restoring previous posts."
-            cp /tmp/facebook-posts-backup.json src/data/facebook-posts.json
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+            git add src/data/facebook-posts.json
+            git commit -m "Update Facebook posts [skip ci]"
+            git push origin HEAD:main
           fi
 
       - name: Build
