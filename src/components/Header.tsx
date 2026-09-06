@@ -11,16 +11,16 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-[1400px] items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-[1400px] items-center gap-2 px-3 py-3 sm:gap-3 sm:px-6 lg:px-8 lg:py-4">
         {/* LEWA CZĘŚĆ */}
-        <div className="flex shrink-0 items-center gap-5">
+        <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-4 lg:gap-5">
           {/* Nazwa kierunku */}
           <Link
             href="/"
             onClick={closeMenu}
-            className="group flex w-48 shrink-0 flex-col"
+            className="group flex min-w-0 flex-col"
           >
-            <span className="text-sm font-bold leading-tight tracking-tight text-[#08265c] sm:text-lg">
+            <span className="max-w-[165px] text-sm font-bold leading-tight tracking-tight text-[#08265c] sm:max-w-none sm:text-lg">
               Inwestycje i analiza danych
             </span>
 
@@ -56,12 +56,12 @@ export default function Header() {
         </div>
 
         {/* PRAWA CZĘŚĆ */}
-        <div className="ml-2 flex shrink-0 items-center gap-2 sm:gap-3 lg:ml-4">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
           {/* DOŁĄCZ DO NAS — ZAWSZE WIDOCZNE */}
           <Link
             href="/dolacz-do-nas"
             onClick={closeMenu}
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#e9c93e] px-3 py-2.5 text-xs font-semibold text-[#08265c] transition hover:bg-[#f1d75d] hover:shadow-md sm:px-4 sm:text-sm"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#e9c93e] px-2.5 py-2 text-xs font-semibold text-[#08265c] transition hover:bg-[#f1d75d] hover:shadow-md sm:px-4 sm:py-2.5 sm:text-sm"
           >
             Dołącz do nas
           </Link>
@@ -71,7 +71,6 @@ export default function Header() {
             className="hidden items-center gap-3 lg:flex xl:gap-4"
             aria-label="Główna nawigacja"
           >
-            {/* PROGRAM */}
             <Link
               href="/program"
               className="whitespace-nowrap text-sm font-medium text-slate-600 transition hover:text-[#2f97d1]"
@@ -79,7 +78,6 @@ export default function Header() {
               Program
             </Link>
 
-            {/* AKTUALNOŚCI */}
             <Link
               href="/aktualnosci"
               className="whitespace-nowrap text-sm font-medium text-slate-600 transition hover:text-[#2f97d1]"
@@ -104,7 +102,6 @@ export default function Header() {
               <span>RCFM</span>
             </Link>
 
-            {/* KONTAKT */}
             <Link
               href="/kontakt"
               className="whitespace-nowrap text-sm font-medium text-slate-600 transition hover:text-[#2f97d1]"
@@ -113,13 +110,13 @@ export default function Header() {
             </Link>
           </nav>
 
-          {/* FACEBOOK — ZAWSZE WIDOCZNY */}
+          {/* FACEBOOK — TYLKO DESKTOP */}
           <a
             href="https://www.facebook.com/profile.php?id=61576578910562"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Odwiedź naszą stronę na Facebooku"
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1877F2] text-white transition hover:bg-[#1468d4] hover:shadow-md sm:h-auto sm:w-auto sm:gap-2 sm:px-3 sm:py-2.5 2xl:px-4"
+            className="hidden items-center justify-center rounded-full bg-[#1877F2] px-3 py-2.5 text-white transition hover:bg-[#1468d4] hover:shadow-md lg:inline-flex 2xl:gap-2 2xl:px-4"
           >
             <span
               className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-xs font-bold text-[#1877F2]"
@@ -131,15 +128,14 @@ export default function Header() {
             <span className="hidden 2xl:inline">Facebook</span>
           </a>
 
-          {/* INSTAGRAM — ZAWSZE WIDOCZNY */}
+          {/* INSTAGRAM — TYLKO DESKTOP */}
           <a
             href="https://www.instagram.com/inwestycje_analiza_danych/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Odwiedź nasz profil na Instagramie"
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#FCAF45] text-white transition hover:brightness-110 hover:shadow-md sm:h-auto sm:w-auto sm:gap-2 sm:px-3 sm:py-2.5 2xl:px-4"
+            className="hidden items-center justify-center rounded-full bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#FCAF45] px-3 py-2.5 text-white transition hover:brightness-110 hover:shadow-md lg:inline-flex 2xl:gap-2 2xl:px-4"
           >
-            {/* Logo Instagram */}
             <svg
               viewBox="0 0 24 24"
               className="h-5 w-5 shrink-0"
@@ -150,17 +146,8 @@ export default function Header() {
               strokeLinejoin="round"
               aria-hidden="true"
             >
-              <rect
-                x="3"
-                y="3"
-                width="18"
-                height="18"
-                rx="5"
-                ry="5"
-              />
-
+              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
               <circle cx="12" cy="12" r="4" />
-
               <circle
                 cx="17.5"
                 cy="6.5"
@@ -177,27 +164,24 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMenuOpen((current) => !current)}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-[#08265c] transition hover:bg-slate-50 lg:hidden"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-white text-[#08265c] transition hover:bg-slate-50 sm:h-10 sm:w-10 lg:hidden"
             aria-label={menuOpen ? "Zamknij menu" : "Otwórz menu"}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
           >
             <span className="relative block h-5 w-6">
-              {/* Górna kreska */}
               <span
                 className={`absolute left-0 top-0.5 h-0.5 w-6 rounded-full bg-current transition-all duration-300 ${
                   menuOpen ? "top-2.5 rotate-45" : ""
                 }`}
               />
 
-              {/* Środkowa kreska */}
               <span
                 className={`absolute left-0 top-2.5 h-0.5 w-6 rounded-full bg-current transition-all duration-300 ${
                   menuOpen ? "opacity-0" : "opacity-100"
                 }`}
               />
 
-              {/* Dolna kreska */}
               <span
                 className={`absolute left-0 top-[18px] h-0.5 w-6 rounded-full bg-current transition-all duration-300 ${
                   menuOpen ? "top-2.5 -rotate-45" : ""
@@ -213,12 +197,12 @@ export default function Header() {
         id="mobile-menu"
         className={`overflow-hidden border-t border-slate-200 bg-white transition-all duration-300 ease-in-out lg:hidden ${
           menuOpen
-            ? "max-h-[400px] opacity-100"
+            ? "max-h-[520px] opacity-100"
             : "max-h-0 border-t-0 opacity-0"
         }`}
       >
         <nav
-          className="mx-auto max-w-6xl px-6 py-4"
+          className="mx-auto max-w-6xl px-4 py-4 sm:px-6"
           aria-label="Mobilna nawigacja"
         >
           <div className="flex flex-col">
@@ -276,7 +260,7 @@ export default function Header() {
             <Link
               href="/kontakt"
               onClick={closeMenu}
-              className="flex items-center justify-between px-2 py-4 font-semibold text-[#08265c] transition hover:text-[#2f97d1]"
+              className="flex items-center justify-between border-b border-slate-100 px-2 py-4 font-semibold text-[#08265c] transition hover:text-[#2f97d1]"
             >
               <span>Kontakt</span>
 
@@ -284,6 +268,57 @@ export default function Header() {
                 →
               </span>
             </Link>
+
+            {/* SOCIAL MEDIA */}
+            <div className="flex flex-wrap gap-3 px-2 pt-5">
+              {/* FACEBOOK */}
+              <a
+                href="https://www.facebook.com/profile.php?id=61576578910562"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#1877F2] px-5 py-3 text-sm font-semibold text-white"
+              >
+                <span
+                  className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-xs font-bold text-[#1877F2]"
+                  aria-hidden="true"
+                >
+                  f
+                </span>
+
+                Facebook
+              </a>
+
+              {/* INSTAGRAM */}
+              <a
+                href="https://www.instagram.com/inwestycje_analiza_danych/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#FCAF45] px-5 py-3 text-sm font-semibold text-white"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1"
+                    fill="currentColor"
+                    stroke="none"
+                  />
+                </svg>
+
+                Instagram
+              </a>
+            </div>
           </div>
         </nav>
       </div>
