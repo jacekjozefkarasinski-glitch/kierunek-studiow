@@ -79,75 +79,75 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
       {/* HERO */}
-<section className="bg-[#08265c] text-white">
-  <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8 lg:py-10">
-    <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-16">
+      <section className="bg-[#08265c] text-white">
+        <div className="mx-auto max-w-6xl px-6 py-10 lg:px-8 lg:py-10">
+          <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-16">
+            {/* Tekst */}
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+                Inwestycje i analiza danych
+              </p>
 
-      {/* Tekst */}
-      <div>
-        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
-          Inwestycje i analiza danych
-        </p>
+              <h1 className="max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl">
+                Jednostki powiązane z kierunkiem
+              </h1>
 
-        <h1 className="max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl">
-          O autorach
-        </h1>
+              <p className="mt-5 max-w-3xl text-lg font-medium leading-8 text-slate-200">
+                Poznaj Centrum Badań nad Rynkiem Finansowym oraz Zakład Rynków
+                Kapitałowych i Inwestycji — jednostki Wydziału Zarządzania UW
+                powiązane z kierunkiem Inwestycje i analiza danych.
+              </p>
+            </div>
 
-        <p className="mt-5 max-w-3xl text-lg font-medium leading-8 text-slate-200">
-          Poznaj zespół stojący za kierunkiem Inwestycje i analiza danych.
-        </p>
-      </div>
+            {/* Logotypy */}
+            <div className="flex items-center gap-7 sm:gap-10 lg:flex-col lg:items-center lg:gap-6">
+              {/* Logo kierunku */}
+              <div className="relative h-28 w-28 shrink-0 sm:h-32 sm:w-32 lg:h-36 lg:w-36">
+                <Image
+                  src="/kierunek-studiow/images/logo-kierunku-transparent.png"
+                  alt="Logo kierunku Inwestycje i analiza danych"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
 
-      {/* Logotypy */}
-      <div className="flex items-center gap-7 sm:gap-10 lg:flex-col lg:items-center lg:gap-6">
-
-        {/* Logo kierunku */}
-        <div className="relative h-28 w-28 shrink-0 sm:h-32 sm:w-32 lg:h-36 lg:w-36">
-          <Image
-            src="/kierunek-studiow/images/logo-kierunku-transparent.png"
-            alt="Logo kierunku Inwestycje i analiza danych"
-            fill
-            className="object-contain"
-            priority
-          />
+              {/* Logo Wydziału */}
+              <div className="relative h-20 w-52 sm:w-64 lg:h-24 lg:w-72">
+                <Image
+                  src="/kierunek-studiow/images/logo-wydzialu-biale-transparentne.png"
+                  alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* Logo Wydziału */}
-        <div className="relative h-20 w-52 sm:w-64 lg:h-24 lg:w-72">
-          <Image
-            src="/kierunek-studiow/images/logo-wydzialu-biale-transparentne.png"
-            alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
-            fill
-            className="object-contain"
-            priority
-          />
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-      {/* AUTORZY PROGRAMU — ZDJĘCIA WYDZIAŁU W TLE */}
+      {/* JEDNOSTKI POWIĄZANE Z KIERUNKIEM */}
       <section className="relative overflow-hidden">
         <BackgroundSlideshow />
 
         <div className="relative z-10 mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
           <div className="max-w-4xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
-              Autorzy programu
+              
             </p>
 
             <h2 className="text-3xl font-semibold tracking-tight text-[#08265c] sm:text-4xl">
-              Zakład Rynków Kapitałowych i Inwestycji
+              Centrum Badań nad Rynkiem Finansowym i <br /> Zakład Rynków
+              Kapitałowych i Inwestycji
             </h2>
 
             <p className="mt-6 text-lg font-semibold leading-8 text-slate-700">
-              Program studiów Inwestycje i analiza danych został stworzony
-              przez samodzielny Zakład Rynków Kapitałowych i Inwestycji
-              działający na Wydziale Zarządzania Uniwersytetu Warszawskiego.
-              Członkowie Zakładu tworzą również Centrum Badań nad Rynkiem
-              Finansowym.
+              Centrum Badań nad Rynkiem Finansowym oraz Zakład Rynków Kapitałowych i
+              Inwestycji to jednostki działające na Wydziale Zarządzania Uniwersytetu
+              Warszawskiego. Prowadzą one działalność badawczą i
+              dydaktyczną związaną z rynkami finansowymi, inwestycjami,
+              finansami oraz analizą danych.
             </p>
           </div>
 
@@ -195,21 +195,22 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ZESPÓŁ */}
+      {/* CZŁONKOWIE JEDNOSTEK */}
       <section className="bg-[#f4f8fc]">
         <div className="mx-auto max-w-6xl px-6 py-14 lg:px-8 lg:py-16">
           <div className="mb-10 max-w-4xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
-              Nasz zespół
+              Członkowie jednostek
             </p>
 
             <h2 className="text-3xl font-semibold tracking-tight text-[#08265c] sm:text-4xl">
-              Zakład Rynków Kapitałowych i Inwestycji
+              Poznaj nasz zespół
             </h2>
 
             <p className="mt-4 text-lg leading-8 text-slate-600">
-              Zespół tworzący Zakład Rynków Kapitałowych i Inwestycji oraz
-              Centrum Badań nad Rynkiem Finansowym.
+              Poznaj członków Centrum Badań nad Rynkiem Finansowym oraz Zakładu
+              Rynków Kapitałowych i Inwestycji Wydziału Zarządzania
+              Uniwersytetu Warszawskiego.
             </p>
           </div>
 
@@ -222,13 +223,13 @@ export default function AboutPage() {
               >
                 <div className="grid md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr]">
                   {/* Zdjęcie */}
-<div className="flex items-center justify-center bg-slate-50 p-5 sm:p-6">
-  <img
-    src={person.image}
-    alt={person.name}
-    className="h-auto max-h-[380px] w-auto max-w-full rounded-2xl object-contain shadow-sm"
-  />
-</div>
+                  <div className="flex items-center justify-center bg-slate-50 p-5 sm:p-6">
+                    <img
+                      src={person.image}
+                      alt={person.name}
+                      className="h-auto max-h-[380px] w-auto max-w-full rounded-2xl object-contain shadow-sm"
+                    />
+                  </div>
 
                   {/* Informacje */}
                   <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-10">
@@ -291,7 +292,7 @@ export default function AboutPage() {
           </p>
 
           <h2 className="mt-2 max-w-3xl text-3xl font-semibold tracking-tight">
-            Program tworzony przez naukowców i praktyków rynku finansowego
+            Poznaj jednostki naukowe powiązane z kierunkiem
           </h2>
         </div>
       </section>

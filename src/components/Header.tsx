@@ -11,14 +11,14 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-[1400px] items-center gap-4 px-4 py-4 sm:px-6 lg:px-8">
         {/* LEWA CZĘŚĆ */}
-        <div className="flex min-w-0 items-center gap-5">
+        <div className="flex shrink-0 items-center gap-5">
           {/* Nazwa kierunku */}
           <Link
             href="/"
             onClick={closeMenu}
-            className="group flex min-w-0 flex-col"
+            className="group flex w-48 shrink-0 flex-col"
           >
             <span className="text-sm font-bold leading-tight tracking-tight text-[#08265c] sm:text-lg">
               Inwestycje i analiza danych
@@ -43,7 +43,7 @@ export default function Header() {
             </div>
 
             {/* Logo Wydziału */}
-            <div className="relative h-14 w-60 shrink-0">
+            <div className="relative h-12 w-48 shrink-0 xl:w-52">
               <Image
                 src="/kierunek-studiow/images/logo-wydzialu-transparent.png"
                 alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
@@ -56,7 +56,7 @@ export default function Header() {
         </div>
 
         {/* PRAWA CZĘŚĆ */}
-        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+        <div className="ml-2 flex shrink-0 items-center gap-2 sm:gap-3 lg:ml-4">
           {/* DOŁĄCZ DO NAS — ZAWSZE WIDOCZNE */}
           <Link
             href="/dolacz-do-nas"
@@ -68,9 +68,10 @@ export default function Header() {
 
           {/* MENU DESKTOPOWE */}
           <nav
-            className="hidden items-center gap-4 lg:flex"
+            className="hidden items-center gap-3 lg:flex xl:gap-4"
             aria-label="Główna nawigacja"
           >
+            {/* PROGRAM */}
             <Link
               href="/program"
               className="whitespace-nowrap text-sm font-medium text-slate-600 transition hover:text-[#2f97d1]"
@@ -78,6 +79,7 @@ export default function Header() {
               Program
             </Link>
 
+            {/* AKTUALNOŚCI */}
             <Link
               href="/aktualnosci"
               className="whitespace-nowrap text-sm font-medium text-slate-600 transition hover:text-[#2f97d1]"
@@ -85,13 +87,24 @@ export default function Header() {
               Aktualności
             </Link>
 
+            {/* RCFM */}
             <Link
               href="/autorzy"
-              className="whitespace-nowrap text-sm font-medium text-slate-600 transition hover:text-[#2f97d1]"
+              className="group flex items-center gap-2 whitespace-nowrap text-sm font-medium text-slate-600 transition hover:text-[#2f97d1]"
             >
-              Autorzy
+              <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-md">
+                <Image
+                  src="/kierunek-studiow/images/CBRF.jpg"
+                  alt=""
+                  fill
+                  className="object-contain"
+                />
+              </span>
+
+              <span>RCFM</span>
             </Link>
 
+            {/* KONTAKT */}
             <Link
               href="/kontakt"
               className="whitespace-nowrap text-sm font-medium text-slate-600 transition hover:text-[#2f97d1]"
@@ -106,7 +119,7 @@ export default function Header() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Odwiedź naszą stronę na Facebooku"
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1877F2] text-white transition hover:bg-[#1468d4] sm:h-auto sm:w-auto sm:gap-2 sm:px-4 sm:py-2.5"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#1877F2] text-white transition hover:bg-[#1468d4] hover:shadow-md sm:h-auto sm:w-auto sm:gap-2 sm:px-3 sm:py-2.5 2xl:px-4"
           >
             <span
               className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-xs font-bold text-[#1877F2]"
@@ -115,7 +128,49 @@ export default function Header() {
               f
             </span>
 
-            <span className="hidden xl:inline">Facebook</span>
+            <span className="hidden 2xl:inline">Facebook</span>
+          </a>
+
+          {/* INSTAGRAM — ZAWSZE WIDOCZNY */}
+          <a
+            href="https://www.instagram.com/inwestycje_analiza_danych/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Odwiedź nasz profil na Instagramie"
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#FCAF45] text-white transition hover:brightness-110 hover:shadow-md sm:h-auto sm:w-auto sm:gap-2 sm:px-3 sm:py-2.5 2xl:px-4"
+          >
+            {/* Logo Instagram */}
+            <svg
+              viewBox="0 0 24 24"
+              className="h-5 w-5 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="5"
+                ry="5"
+              />
+
+              <circle cx="12" cy="12" r="4" />
+
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+
+            <span className="hidden 2xl:inline">Instagram</span>
           </a>
 
           {/* HAMBURGER — MOBILE / TABLET */}
@@ -193,13 +248,24 @@ export default function Header() {
               </span>
             </Link>
 
-            {/* AUTORZY */}
+            {/* RCFM */}
             <Link
               href="/autorzy"
               onClick={closeMenu}
               className="flex items-center justify-between border-b border-slate-100 px-2 py-4 font-semibold text-[#08265c] transition hover:text-[#2f97d1]"
             >
-              <span>Autorzy</span>
+              <span className="flex items-center gap-3">
+                <span className="relative h-8 w-8 shrink-0 overflow-hidden rounded-md">
+                  <Image
+                    src="/kierunek-studiow/images/CBRF.jpg"
+                    alt=""
+                    fill
+                    className="object-contain"
+                  />
+                </span>
+
+                <span>RCFM</span>
+              </span>
 
               <span className="text-slate-400" aria-hidden="true">
                 →

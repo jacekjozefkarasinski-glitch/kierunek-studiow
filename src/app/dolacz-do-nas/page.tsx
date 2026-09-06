@@ -58,56 +58,44 @@ export default function DolaczDoNasPage() {
 </section>
 
       {/* NAJWAŻNIEJSZE INFORMACJE */}
-      <section className="bg-[#f4f8fc]">
-        <div className="mx-auto max-w-6xl px-6 py-12 lg:px-8">
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {/* Poziom */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-6">
-              <p className="text-sm font-medium text-slate-500">
-                Poziom studiów
-              </p>
+<section className="bg-[#f4f8fc]">
+  <div className="mx-auto max-w-6xl px-6 py-12 lg:px-8">
+    <div className="grid gap-5 md:grid-cols-3">
+      {/* Poziom */}
+      <div className="rounded-2xl border border-slate-200 bg-white p-6">
+        <p className="text-sm font-medium text-slate-500">
+          Poziom studiów
+        </p>
 
-              <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                Studia II stopnia
-              </p>
-            </div>
+        <p className="mt-2 text-xl font-semibold text-[#08265c]">
+          Studia II stopnia
+        </p>
+      </div>
 
-            {/* Czas */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-6">
-              <p className="text-sm font-medium text-slate-500">
-                Czas trwania
-              </p>
+      {/* Czas */}
+      <div className="rounded-2xl border border-slate-200 bg-white p-6">
+        <p className="text-sm font-medium text-slate-500">
+          Czas trwania
+        </p>
 
-              <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                3 semestry
-              </p>
-            </div>
+        <p className="mt-2 text-xl font-semibold text-[#08265c]">
+          3 semestry
+        </p>
+      </div>
 
-            {/* Tryb */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-6">
-              <p className="text-sm font-medium text-slate-500">
-                Tryb
-              </p>
+      {/* Tryb */}
+      <div className="rounded-2xl border border-slate-200 bg-white p-6">
+        <p className="text-sm font-medium text-slate-500">
+          Tryb
+        </p>
 
-              <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                Stacjonarne i zaoczne
-              </p>
-            </div>
-
-            {/* Edycja */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-6">
-              <p className="text-sm font-medium text-slate-500">
-                Edycja
-              </p>
-
-              <p className="mt-2 text-xl font-semibold text-[#08265c]">
-                II edycja
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+        <p className="mt-2 text-xl font-semibold text-[#08265c]">
+          Stacjonarne i zaoczne
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
       {/* JAK APLIKOWAĆ — ZDJĘCIA WYDZIAŁU W TLE */}
       <section className="relative overflow-hidden">
         {/* Slideshow zaczynający od wydzial-3.jpg */}

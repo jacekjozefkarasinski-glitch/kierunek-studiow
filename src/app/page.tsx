@@ -27,7 +27,7 @@ function formatDate(dateString: string) {
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      {/* Hero */}
+      {/* HERO */}
       <section className="bg-[#08265c]">
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
           <picture>
@@ -45,159 +45,155 @@ export default function Home() {
         </div>
       </section>
 
-{/* Wprowadzenie ze zmieniającymi się zdjęciami Wydziału w tle */}
-<section className="relative overflow-hidden">
-  <BackgroundSlideshow />
+      {/* WPROWADZENIE ZE ZMIENIAJĄCYMI SIĘ ZDJĘCIAMI WYDZIAŁU W TLE */}
+      <section className="relative overflow-hidden">
+        <BackgroundSlideshow />
 
-  <div className="relative z-10 mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
-    <div className="grid min-w-0 gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-center lg:gap-10">
-      {/* Tekst */}
-      <div className="min-w-0">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
-          Wydział Zarządzania Uniwersytetu Warszawskiego
-        </p>
+        <div className="relative z-10 mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
+          <div className="grid min-w-0 gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-center lg:gap-10">
+            {/* Tekst */}
+            <div className="min-w-0">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+                Wydział Zarządzania Uniwersytetu Warszawskiego
+              </p>
 
-        <h1 className="break-words text-4xl font-semibold tracking-tight text-[#08265c] sm:text-5xl lg:text-6xl">
-          Inwestycje i analiza danych
-        </h1>
+              <h1 className="break-words text-4xl font-semibold tracking-tight text-[#08265c] sm:text-5xl lg:text-6xl">
+                Inwestycje i analiza danych
+              </h1>
 
-        <p className="mt-6 max-w-2xl text-lg font-semibold leading-8 text-slate-700">
-  3-semestralne studia magisterskie dla osób, które chcą łączyć
-  wiedzę z zakresu inwestycji, finansów i analizy danych oraz
-  podejmować decyzje oparte na rzetelnych informacjach.
-</p>
-      </div>
+              <p className="mt-6 max-w-2xl text-lg font-semibold leading-8 text-slate-700">
+                3-semestralne studia magisterskie dla osób, które chcą łączyć
+                wiedzę z zakresu inwestycji, finansów i analizy danych oraz
+                podejmować decyzje oparte na rzetelnych informacjach.
+              </p>
+            </div>
 
-      {/* Duże logotypy */}
-<div className="flex min-w-0 items-center justify-center gap-4 sm:gap-6 lg:flex-col lg:gap-5">
+            {/* Duże logotypy */}
+            <div className="flex min-w-0 items-center justify-center gap-4 sm:gap-6 lg:flex-col lg:gap-5">
+              {/* Logo kierunku */}
+              <div className="relative h-32 w-32 shrink-0 sm:h-40 sm:w-40 lg:h-44 lg:w-44">
+                <Image
+                  src="/kierunek-studiow/images/logo-kierunku-transparent.png"
+                  alt="Logo kierunku Inwestycje i analiza danych"
+                  fill
+                  unoptimized
+                  sizes="(max-width: 640px) 128px, 176px"
+                  className="object-contain"
+                />
+              </div>
 
-  {/* Logo kierunku */}
-  <div className="relative h-32 w-32 shrink-0 sm:h-40 sm:w-40 lg:h-44 lg:w-44">
-    <Image
-      src="/kierunek-studiow/images/logo-kierunku-transparent.png"
-      alt="Logo kierunku Inwestycje i analiza danych"
-      fill
-      unoptimized
-      sizes="(max-width: 640px) 128px, 176px"
-      className="object-contain"
-    />
-  </div>
+              {/* Separator */}
+              <div className="h-24 w-px shrink-0 bg-slate-300 sm:h-32 lg:h-px lg:w-72" />
 
-  {/* Separator */}
-  <div className="h-24 w-px shrink-0 bg-slate-300 sm:h-32 lg:h-px lg:w-72" />
+              {/* Logo Wydziału */}
+              <div className="relative h-16 min-w-0 flex-1 sm:h-20 lg:h-24 lg:w-80 lg:flex-none">
+                <Image
+                  src="/kierunek-studiow/images/logo-wydzialu-transparent.png"
+                  alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
+                  fill
+                  unoptimized
+                  sizes="(max-width: 640px) 45vw, 320px"
+                  className="object-contain object-center"
+                />
+              </div>
+            </div>
+          </div>
 
-  {/* Logo Wydziału */}
-  <div className="relative h-16 min-w-0 flex-1 sm:h-20 lg:h-24 lg:w-80 lg:flex-none">
-    <Image
-      src="/kierunek-studiow/images/logo-wydzialu-transparent.png"
-      alt="Wydział Zarządzania Uniwersytetu Warszawskiego"
-      fill
-      unoptimized
-      sizes="(max-width: 640px) 45vw, 320px"
-      className="object-contain object-center"
-    />
-  </div>
+          {/* Kafelki */}
+          <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Forma studiów */}
+            <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+              <p className="text-sm font-medium text-slate-500">
+                Forma studiów
+              </p>
 
-</div>
-    </div>
+              <p className="mt-2 text-xl font-semibold text-[#08265c]">
+                Studia II stopnia
+              </p>
+            </div>
 
-    {/* Kafelki */}
-    <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-      <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
-        <p className="text-sm font-medium text-slate-500">
-          Forma studiów
-        </p>
-        <p className="mt-2 text-xl font-semibold text-[#08265c]">
-          Studia II stopnia
-        </p>
-      </div>
+            {/* Tryb */}
+            <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+              <p className="text-sm font-medium text-slate-500">
+                Tryb
+              </p>
 
-      <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
-        <p className="text-sm font-medium text-slate-500">
-          Tryb
-        </p>
-        <p className="mt-2 text-xl font-semibold text-[#08265c]">
-          Stacjonarne i zaoczne
-        </p>
-      </div>
+              <p className="mt-2 text-xl font-semibold text-[#08265c]">
+                Stacjonarne i zaoczne
+              </p>
+            </div>
 
-      <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
-        <p className="text-sm font-medium text-slate-500">
-          Czas trwania
-        </p>
-        <p className="mt-2 text-xl font-semibold text-[#08265c]">
-          3 semestry
-        </p>
-      </div>
+            {/* Czas trwania */}
+            <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+              <p className="text-sm font-medium text-slate-500">
+                Czas trwania
+              </p>
 
-      <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
-        <p className="text-sm font-medium text-slate-500">
-          Edycja
-        </p>
-        <p className="mt-2 text-xl font-semibold text-[#08265c]">
-          II edycja
-        </p>
-      </div>
+              <p className="mt-2 text-xl font-semibold text-[#08265c]">
+                3 semestry
+              </p>
+            </div>
 
-      <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
-        <p className="text-sm font-medium text-slate-500">
-          Uczelnia
-        </p>
-        <p className="mt-2 text-xl font-semibold text-[#08265c]">
-          Uniwersytet Warszawski
-          <br />
-          Wydział Zarządzania
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+            {/* Uczelnia */}
+            <div className="rounded-2xl border border-white/60 bg-white/85 p-5 shadow-sm backdrop-blur-sm">
+              <p className="text-sm font-medium text-slate-500">
+                Uczelnia
+              </p>
 
-{/* Rekrutacja CTA */}
-<section className="bg-[#e9c93e]">
-  <div className="mx-auto max-w-6xl px-6 py-6 lg:px-8">
-    <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-      
-      {/* Tekst */}
-      <div>
-        <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
-          Rekrutacja
-        </p>
+              <p className="mt-2 text-xl font-semibold text-[#08265c]">
+                Uniwersytet Warszawski
+                <br />
+                Wydział Zarządzania
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <h2 className="text-2xl font-semibold tracking-tight text-[#08265c]">
-          Zapoznaj się z zasadami rekrutacji i aplikuj na nasz kierunek
-        </h2>
-      </div>
+      {/* REKRUTACJA CTA */}
+      <section className="bg-[#e9c93e]">
+        <div className="mx-auto max-w-6xl px-6 py-6 lg:px-8">
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            {/* Tekst */}
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
+                Rekrutacja
+              </p>
 
-      {/* Przyciski */}
-      <div className="flex shrink-0 flex-wrap gap-3">
-        <Link
-          href="/dolacz-do-nas"
-          className="inline-flex items-center justify-center rounded-full bg-[#08265c] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#113b82]"
-        >
-          Dołącz do nas →
-        </Link>
+              <h2 className="text-2xl font-semibold tracking-tight text-[#08265c]">
+                Zapoznaj się z zasadami rekrutacji i aplikuj na nasz kierunek
+              </h2>
+            </div>
 
-        <a
-          href="https://irk.uw.edu.pl/pl/offer/PELNE2026/field/P_IAD/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-full bg-[#2f97d1] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#2584b9]"
-        >
-          IRK ↗
-        </a>
-      </div>
+            {/* Przyciski */}
+            <div className="flex shrink-0 flex-wrap gap-3">
+              <Link
+                href="/dolacz-do-nas"
+                className="inline-flex items-center justify-center rounded-full bg-[#08265c] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#113b82]"
+              >
+                Dołącz do nas →
+              </Link>
 
-    </div>
-  </div>
-</section>
+              <a
+                href="https://irk.uw.edu.pl/pl/offer/PELNE2026/field/P_IAD/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-[#2f97d1] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#2584b9]"
+              >
+                IRK ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* Facebook CTA */}
+      {/* SOCIAL MEDIA CTA */}
       <section className="bg-[#08265c] text-white">
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-9 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          {/* Tekst */}
           <div className="max-w-3xl">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#2f97d1]">
-              Facebook
+              Social media
             </p>
 
             <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -206,23 +202,81 @@ export default function Home() {
 
             <p className="mt-3 max-w-2xl text-base leading-7 text-slate-200">
               Aktualności, wydarzenia, informacje o rekrutacji i materiały
-              związane z kierunkiem publikujemy również na naszej stronie
-              Facebook.
+              związane z kierunkiem publikujemy również w naszych mediach
+              społecznościowych.
             </p>
           </div>
 
-          <a
-            href="https://www.facebook.com/profile.php?id=61576578910562"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#2f97d1] px-7 py-4 text-base font-semibold text-white transition hover:bg-[#2584b9]"
-          >
-            Odwiedź nas na Facebooku →
-          </a>
+          {/* Przyciski social media */}
+          <div className="flex shrink-0 flex-wrap gap-3">
+            {/* Facebook */}
+            <a
+              href="https://www.facebook.com/profile.php?id=61576578910562"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Odwiedź naszą stronę na Facebooku"
+              className="inline-flex items-center justify-center gap-3 rounded-full bg-[#1877F2] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#1468d4] hover:shadow-lg"
+            >
+              <span
+                className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-sm font-bold text-[#1877F2]"
+                aria-hidden="true"
+              >
+                f
+              </span>
+
+              <span>Facebook</span>
+
+              <span aria-hidden="true">→</span>
+            </a>
+
+            {/* Instagram */}
+            <a
+              href="https://www.instagram.com/inwestycje_analiza_danych/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Odwiedź nasz profil na Instagramie"
+              className="inline-flex items-center justify-center gap-3 rounded-full bg-gradient-to-br from-[#833AB4] via-[#E1306C] to-[#FCAF45] px-6 py-3.5 text-sm font-semibold text-white transition hover:brightness-110 hover:shadow-lg"
+            >
+              {/* Logo Instagram */}
+              <svg
+                viewBox="0 0 24 24"
+                className="h-6 w-6 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <rect
+                  x="3"
+                  y="3"
+                  width="18"
+                  height="18"
+                  rx="5"
+                  ry="5"
+                />
+
+                <circle cx="12" cy="12" r="4" />
+
+                <circle
+                  cx="17.5"
+                  cy="6.5"
+                  r="1"
+                  fill="currentColor"
+                  stroke="none"
+                />
+              </svg>
+
+              <span>Instagram</span>
+
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Aktualności */}
+      {/* AKTUALNOŚCI */}
       <section id="aktualnosci" className="bg-[#f4f8fc]">
         <div className="mx-auto max-w-6xl px-6 py-12 lg:px-8 lg:py-14">
           <div className="mb-8 flex items-end justify-between gap-6">
@@ -323,7 +377,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Dolne CTA */}
+      {/* DOLNE CTA */}
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
           <div className="rounded-3xl bg-[#e9c93e] px-8 py-10 text-[#08265c] lg:flex lg:items-center lg:justify-between">
